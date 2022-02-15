@@ -1,0 +1,249 @@
+.ModalVisible {
+    position: absolute;
+    z-index: 500;
+    background-color: #fff;
+    min-width: 600px;
+    width: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 14%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 9px;
+    visibility: visible;
+    max-width: 800px;
+    animation: modal;
+    animation-duration: 1s;
+}
+
+.CloseCross {
+    height: 17px;
+    cursor: pointer;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.CloseCross:hover {
+    background-color: #d9e1ebb0;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+}
+
+.InnerModalContainer {
+    position: relative;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.Header {
+    display: flex;
+    border-bottom: 1px solid #F1F2F3;
+    align-items: center;
+    padding: 20px 35px;
+    padding-right: 22px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.Header h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.SuggestedClients {
+    position: absolute;
+    top: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.2);
+    min-height: 30px;
+    max-height: 230px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.ClientDropDownContainer {
+    padding: 8px 17px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 6px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.ClientInfo {
+    display: flex;
+}
+
+.SearchInput {
+    position: relative;
+}
+
+.SearchInput input {
+    height: 37px !important;
+    border-radius: 8px;
+    border: 1.8px solid #c7cbd6;
+    outline: none;
+    background-color: #e6ecf207;
+    transition: all 0.1s linear;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    width: 60%;
+}
+
+.SearchInput input:focus {
+    border: 1.8px solid #8bb8e8;
+    background-color: #e6ecf223;
+    transition: all 0.1s linear;
+}
+
+.Table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Data {
+    /* border-bottom: 1px solid #ddddddbb; */
+    text-align: left;
+    padding: 8px;
+}
+
+.DataHeadings {
+    /* border-bottom: 1px solid #ddddddbb; */
+    text-align: left;
+    width: 30%;
+    padding: 8px;
+}
+
+.TableHeadingRow{
+    background-color: #F3F5F7;
+}
+
+.TableHeadingRow th{
+    background-color: #F3F5F7;
+    text-align: left;
+    padding: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.ActionLink{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: center;
+    padding: 8px;
+    justify-content: center;
+}
+
+.Row:nth-child(even) {
+    background-color: #F3F5F7;
+}
+
+.LinkButton {
+    display: flex;
+    background-color: #fff;
+    height: 28px;
+    width: 28px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    line-height: 3px;
+    border-radius: 5px;
+    color: black;
+    font-size: 24px;
+    border: 2px solid black;
+    padding-bottom: 2px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.11s linear;
+}
+
+.LinkButton_selected {
+    display: flex;
+    background-color: #b6c5d6b0;
+    height: 28px;
+    width: 28px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: black;
+    font-size: 24px;
+    border: 2px solid black;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.11s linear;
+}
+
+.LinkButton_selected img {
+    height: 17px;
+}
+
+.SearchBar {
+    height: 30px;
+    padding: 6.7px 12px;
+    width: 100%;
+    background-color: #fafdff;
+    border: 1.8px solid #DAE1E7;
+    border-right: 0;
+    color: black;
+    font-size: 15px;
+    outline: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    transition: all 0.1s linear;
+}
+
+.SearchBar:focus {
+    border: 1.8px solid #8bb8e8;
+    border-right: 0;
+    background-color: #e6ecf223;
+    transition: all 0.1s linear;
+}
+
+.SearchButton {
+    padding: 7px 12px;
+    height: 47.6px;
+    width: 47px;
+    border-radius: 8px;
+    background-color: #b2c3d65e;
+    border: 1.8px solid #ccdbec5e;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -6px;
+    transition: all 0.11s linear;
+}
+
+.SearchContainer {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    position: relative;
+    margin-bottom: 14px;
+}

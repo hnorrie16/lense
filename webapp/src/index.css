@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #d9e1e76c;
+  /* background-color: #e4edf8; */
+  font-family: "HKGrotesk";
+  user-select: none;
+  /* supported by Chrome and Opera */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  /* overflow-y: hidden; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@font-face {
+  font-family: "HKGrotesk";
+  src: local("HKGrotesk"),
+    url("./fonts/hk-grotesk/HKGrotesk-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+
+textarea, input, button, select { font-family: "HKGrotesk"; }

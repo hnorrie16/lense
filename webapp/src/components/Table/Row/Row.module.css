@@ -1,0 +1,388 @@
+.Row {
+	margin-top: 10px;
+	position: relative;
+	transition: all 0.2s linear;
+}
+
+.Row td {
+	border-bottom: 1px solid #e7ecf2;
+	text-align: left;
+	padding: 15px 8px;
+	background-color: #fff;
+	font-size: 12px;
+	position: relative;
+	/* text-overflow: ellipsis; */
+}
+
+.Row td:last-child {
+	border-right: 0;
+}
+
+.RowStatus, .RowStatus_new {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 36px;
+	width: 70%;
+	background-color: #D0E7DD;
+	border-radius: 50px;
+	color: #6EB493;
+	box-sizing: border-box;
+	font-weight: 600;
+}
+
+.RowStatus{
+	background-color: #C5E6F8 !important;
+	color: #63A8CF !important;
+}
+
+.Options {
+	background-color: #ffffff21;
+	border-radius: 100%;
+	height: 34px;
+	width: 34px;
+	box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	/* margin-right: -30px; */
+	margin-left: 20px;
+	transition: all 0.15s linear;
+}
+
+.Options:hover {
+	/* background-color: #86868621; */
+	box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.3);
+	transition: all 0.15s linear;
+}
+
+.ThreeDots {
+	transform: rotate(90deg);
+	display: flex;
+	width: 7px;
+	height: 23px;
+	background-image: radial-gradient(
+		circle,
+		rgb(47, 47, 47) 2px,
+		transparent 3px
+	);
+	background-size: 100% 33.33%;
+	cursor: pointer;
+}
+
+.DropDownContainer {
+	color: rgba(0, 0, 0, 0.87);
+	background-color: rgb(255, 255, 255);
+	transition: transform 250ms cubic-bezier(0.23, 1, 0.32, 1) 0ms,
+		opacity 250ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+	box-sizing: border-box;
+	font-family: Roboto, sans-serif;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	box-shadow: 0 3px 15px rgba(105, 105, 105, 0.2);
+	border-radius: 2px;
+	position: absolute;
+	z-index: 10;
+	opacity: 1;
+	transform: scale(1, 1);
+	transform-origin: left top;
+	overflow: visible;
+	float: left;
+	text-align: left;
+	margin-top: -38px;
+	margin-left: 0px;
+	padding: 10px 0;
+	border-radius: 8px;
+	width: 220px;
+	list-style: none;
+	background-clip: padding-box;
+	padding-left: 0;
+	border: 0.5px solid rgba(77, 67, 67, 0.075);
+}
+
+.DropDownContainer a {
+	text-decoration: none !important;
+	color: black;
+	width: 100%;
+	height: 100%;
+}
+
+.DropDownButton_Assessment {
+	display: flex;
+	justify-content: left;
+	padding: 12px 20px;
+	letter-spacing: 1px;
+	color: rgb(80, 80, 80);
+	transition: all 0.1s linear;
+	background: url("../../../Assets/Icons/assessment.svg") no-repeat scroll 7px
+		7px;
+	background-size: 16px;
+	background-position: 11% center;
+	font-size: 13px;
+	padding-left: 44px;
+}
+
+.DropDownButton_Profile {
+	display: flex;
+	justify-content: left;
+	padding: 12px 20px;
+	letter-spacing: 1px;
+	color: rgb(80, 80, 80);
+	transition: all 0.1s linear;
+	background: url("../../../Assets/Icons/person-lines-fill.svg") no-repeat
+		scroll 7px 7px;
+	background-size: 16px;
+	background-position: 11% center;
+	font-size: 13px;
+	padding-left: 44px;
+}
+
+.DropDownButton_Archive {
+	display: flex;
+	justify-content: left;
+	padding: 12px 20px;
+	letter-spacing: 1px;
+	color: rgb(80, 80, 80);
+	transition: all 0.1s linear;
+	background: url("../../../Assets/Icons/archive.svg") no-repeat scroll 7px 7px;
+	background-size: 16px;
+	background-position: 11% center;
+	font-size: 13px;
+	padding-left: 44px;
+}
+
+.DropDownButton_Link {
+	display: flex;
+	justify-content: left;
+	padding: 12px 20px;
+	letter-spacing: 1px;
+	color: rgb(80, 80, 80);
+	transition: all 0.1s linear;
+	background: url("../../../Assets/Icons/link-45deg.svg") no-repeat scroll 7px
+		7px;
+	background-size: 16px;
+	background-position: 11% center;
+	font-size: 13px;
+	padding-left: 44px;
+}
+
+.DropDownButton_Delete {
+	display: flex;
+	justify-content: left;
+	padding: 12px 20px;
+	letter-spacing: 1px;
+	color: rgb(80, 80, 80);
+	transition: all 0.1s linear;
+	background: url("../../../Assets/Icons/trash-fill.svg") no-repeat scroll 7px
+		7px;
+	background-size: 16px;
+	background-position: 11% center;
+	font-size: 13px;
+	padding-left: 44px;
+}
+
+.DropDownButton_Privileges {
+	display: flex;
+	justify-content: left;
+	padding: 12px 20px;
+	letter-spacing: 1px;
+	color: rgb(80, 80, 80);
+	transition: all 0.1s linear;
+	background: url("../../../Assets/Icons/layer-forward.svg") no-repeat scroll
+		7px 7px;
+	background-size: 16px;
+	background-position: 11% center;
+	font-size: 13px;
+	padding-left: 44px;
+}
+
+.DropDownButton_Assessment a:link,
+.DropDownButton_Profile a:link,
+.DropDownButton_Archive a:link,
+.DropDownButton_Link a:link,
+.DropDownButton_Delete a:link,
+.DropDownButton_Privileges a:link {
+	text-decoration: none !important;
+}
+
+.DropDownButton_Assessment:hover,
+.DropDownButton_Profile:hover,
+.DropDownButton_Archive:hover,
+.DropDownButton_Link:hover,
+.DropDownButton_Delete:hover,
+.DropDownButton_Privileges:hover {
+	background-color: rgba(36, 36, 36, 0.071);
+	cursor: pointer;
+	color: black;
+	transition: all 0.1s linear;
+}
+
+.LineRule {
+	border-bottom: 1px solid #dbdbde;
+	margin: 13px 28px;
+	width: auto;
+}
+
+.ButtonGroup {
+	display: flex;
+	justify-content: flex-end;
+}
+
+@media screen and (min-width: 1450px) and (max-width: 1600px) {
+	.priority12 {
+		display: none;
+	}
+	.priority11 {
+		display: none;
+	}
+	.priority10 {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1350px) and (max-width: 1450px) {
+	.priority12 {
+		display: none;
+	}
+	.priority11 {
+		display: none;
+	}
+	.priority10 {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1350px) {
+	.priority12 {
+		display: none;
+	}
+	.priority11 {
+		display: none;
+	}
+	.priority10 {
+		display: none;
+	}
+	.priority9 {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1120px) and (max-width: 1250px) {
+	.priority12 {
+		display: none;
+	}
+	.priority11 {
+		display: none;
+	}
+	.priority10 {
+		display: none;
+	}
+	.priority9 {
+		display: none;
+	}
+	.priority8 {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1050px) and (max-width: 1120px) {
+	.priority12 {
+		display: none;
+	}
+	.priority11 {
+		display: none;
+	}
+	.priority10 {
+		display: none;
+	}
+	.priority9 {
+		display: none;
+	}
+	.priority8 {
+		display: none;
+	}
+	.priority7 {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 920px) and (max-width: 1050px) {
+	.priority12 {
+		display: none;
+	}
+	.priority11 {
+		display: none;
+	}
+	.priority10 {
+		display: none;
+	}
+	.priority9 {
+		display: none;
+	}
+	.priority8 {
+		display: none;
+	}
+	.priority7 {
+		display: none;
+	}
+	.priority6 {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 780px) and (max-width: 920px) {
+	.priority12 {
+		display: none;
+	}
+	.priority11 {
+		display: none;
+	}
+	.priority10 {
+		display: none;
+	}
+	.priority9 {
+		display: none;
+	}
+	.priority8 {
+		display: none;
+	}
+	.priority7 {
+		display: none;
+	}
+	.priority6 {
+		display: none;
+	}
+	.priority5 {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 480px) and (max-width: 780px) {
+	.priority12 {
+		display: none;
+	}
+	.priority11 {
+		display: none;
+	}
+	.priority10 {
+		display: none;
+	}
+	.priority9 {
+		display: none;
+	}
+	.priority8 {
+		display: none;
+	}
+	.priority7 {
+		display: none;
+	}
+	.priority6 {
+		display: none;
+	}
+	.priority5 {
+		display: none;
+	}
+	.priority4 {
+		display: none;
+	}
+}

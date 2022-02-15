@@ -1,0 +1,23 @@
+.Table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Data {
+    border-bottom: 1px solid #ddddddbb;
+    text-align: left;
+    padding: 8px;
+    font-weight: 600;
+    color: rgb(19, 19, 19);
+}
+
+.DataHeadings {
+    border-bottom: 1px solid #ddddddbb;
+    text-align: left;
+    width: 30%;
+    padding: 8px;
+}
+
+.Row:nth-child(even) {
+    background-color: #F3F5F7;
+}

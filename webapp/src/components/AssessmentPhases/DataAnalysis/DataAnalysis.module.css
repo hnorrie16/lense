@@ -1,0 +1,83 @@
+.Container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.Header {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.LineRule {
+    border-bottom: 1px solid #CECECE;
+    margin: 13px 22px;
+    margin-right: 0;
+    width: auto;
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    align-self: center;
+}
+
+.Container h5 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.SectionsContainer {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 0px;
+    padding: 0;
+    min-width: 25%;
+    margin-bottom: 0;
+    margin-right: 25px;
+    height: 390px;
+    justify-content: space-between;
+}
+
+.DataOverviewContainer {
+    display: flex;
+    position: relative;
+}
+
+.ViewContainer {
+    display: flex;
+    border-radius: 12px;
+    flex-grow: 1;
+    /* height: 390px; */
+    background: #fff;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+}
+
+.TopContainer {
+    margin-bottom: 20px;
+}
+
+.FormContainer {
+    /* display: flex;
+    flex-direction: column; */
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    /* height: 800px; */
+    border-radius: 12px;
+    margin-top: 10px;
+    overflow-y: auto !important;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+}

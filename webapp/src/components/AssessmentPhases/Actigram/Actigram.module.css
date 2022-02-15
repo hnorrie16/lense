@@ -1,0 +1,257 @@
+.Container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.Header {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.LineRule {
+    border-bottom: 1px solid #CECECE;
+    margin: 13px 22px;
+    margin-right: 0;
+    width: auto;
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    align-self: center;
+}
+
+.Container h5 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.UploadContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.8px dashed transparent;
+    height: 200px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+    position: relative;
+}
+
+.TopContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1326px) {
+    .TopContainer {
+        flex-direction: column-reverse;
+    }
+    .Sub{
+        width: 100% !important;
+    }
+}
+
+.Sub {
+    width: 48%;
+}
+
+.Inner, .Inner_summary {
+    display: flex;
+    align-items: center;
+    width: 280px;
+}
+
+.Inner_summary {
+    width: 340px !important;
+}
+
+.Inner div, .Inner_summary div {
+    margin-left: 20px;
+}
+
+.Inner h3, .Inner_summary h3 {
+    margin: 0;
+    margin-bottom: 2px;
+    color: #A1A5B1;
+}
+
+.Inner button, .Inner_summary button {
+    height: 26px;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 0;
+    color: #A1A5B1;
+    font-weight: 600;
+    cursor: pointer;
+    transform: all 0.2s linear;
+    width: fit-content;
+    padding: 0;
+    margin-right: 10px;
+    margin-left: 1px;
+    outline: none;
+    text-decoration: underline;
+}
+
+.Inner button:hover, .Inner_summary button:hover {
+    color: #8bb8e8;
+}
+
+.Inner label, .Inner_summary label {
+    display: flex;
+    border-radius: 8px;
+    margin-top: 5px;
+    background: #8bb8e8;
+    height: 36px;
+    width: 120px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.Inner span, .Inner_summary span {
+    font-size: 12px;
+    color: #A1A5B1;
+}
+
+.Inner input[type='file'], .Inner_summary input[type='file'] {
+    display: none;
+}
+
+.FileUploaded {
+    display: flex;
+    margin-left: 0 !important;
+    margin-bottom: 4px;
+}
+
+.DashedBoarder {
+    border: 1px dashed #A1A5B1;
+    width: 95%;
+    height: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.FileUploaded span {
+    font-size: 14px !important;
+}
+
+.SleepDiaryContainer {
+    overflow-y: auto !important;
+    height: 360px;
+    display: flex;
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+    margin-bottom: 10px;
+}
+
+.Days {
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.SleepDiaryContainer h4 {
+    margin: 0;
+    padding: 0;
+    margin-top: -15px;
+}
+
+.SleepDiaryContainer table {
+    border-collapse: separate;
+    border-spacing: 0px;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.Day {
+    margin-bottom: 20px;
+}
+
+.TableHeadingRow {
+    width: 100%;
+}
+
+.TableHeadingRow th {
+    text-align: left;
+    padding: 20px 8px;
+    font-size: 13px;
+    margin-left: 40px;
+}
+
+.RemoveWeek, .RemoveWeek_disabled, .RemoveDay, .RemoveDay_disabled, .AddWeek, .AddDay {
+    cursor: pointer;
+    border-radius: 8px;
+    border: 0;
+    margin-left: 10px;
+    background-color: #ffffff;
+    color: #000;
+    outline: none;
+}
+
+.AddWeek, .AddDay {
+    width: 100px;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.RemoveDay, .RemoveWeek {
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.RemoveWeek, .RemoveWeek_disabled, .RemoveDay, .RemoveDay_disabled {
+    width: 130px;
+}
+
+.RemoveWeek_disabled, .RemoveDay_disabled {
+    cursor: default;
+    background-color: rgba(230, 230, 230, 0.842);
+    color: #5f5f5f;
+}
+
+.SleepDiaryRequired {
+    width: 100%;
+    margin-top: 70px;
+    text-align: center;
+    color: rgb(197, 26, 26);
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ValidationError {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 26px;
+}
+
+.ValidationError span{
+    font-size: 15px;
+    color: rgb(197, 0, 0);
+    font-weight: 600;
+    margin-left: 5px;
+}

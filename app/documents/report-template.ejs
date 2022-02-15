@@ -1,0 +1,525 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>PDF Result Template</title>
+    <style>
+        .container {
+            margin: auto;
+            font-size: 10px;
+            padding: 0 40px;
+            line-height: 16px;
+        }
+
+        #opening-remark {
+            font-size: 10px;
+        }
+
+        .banner {
+            width: 100%;
+            height: 20px;
+            background-color: #141414;
+            /* padding: 5px 1px; */
+        }
+
+        .banner h3 {
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            font-size: 12px;
+            display: inline-block;
+            vertical-align: middle;
+            padding: 4px 1px;
+            box-sizing: border-box;
+        }
+
+        .headings tr {
+            border-bottom: 1px solid #141414;
+        }
+
+        .rows tr {
+            border-bottom: 1px solid #141414;
+        }
+
+        .flex {}
+
+        .flex span {
+            width: 150px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .bar {
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .graph {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sleep-profile-info {}
+
+        .left-con {
+            display: inline-block;
+        }
+
+        .right-con {
+            display: inline-block;
+        }
+
+        .client-details {
+            text-align: justify;
+        }
+
+        .client-details:after {
+            content: '';
+            width: 100%;
+            display: inline-block;
+        }
+
+        .title-value {
+            display: flex;
+        }
+
+        #label {
+            display: flex;
+            font-weight: 600;
+            width: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        #daily tr,
+        #summary tr
+         {
+            border: 1px solid #141414;
+        }
+        #daily th, #daily td,
+        #summary th, #summary td{
+            border-right: 1px solid #141414;
+        }
+
+        th,
+        td {
+            text-align: center;
+            width: fit-content;
+            padding: 6px 3px;
+            border-left: none;
+        }
+
+        td {
+            font-size: 10px;
+        }
+
+        th {
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        #side-title {
+            /* font-weight: 600; */
+        }
+
+        .side-title-interpretation {
+            font-weight: 600;
+            text-align: left;
+            padding: 0;
+            width: 100px !important;
+            border-right: 1px solid #141414;
+            padding-left: 10px
+        }
+
+        .interpretation-content {
+            text-align: left;
+            /* border-bottom: 1px solid #141414; */
+        }
+
+        #interpretation-content-single {
+            text-align: left;
+        }
+
+        .tr-interpretation {
+            border: 1px solid #141414;
+        }
+
+        .tr-interpretation:last-child {
+            border-bottom: 0;
+        }
+
+        #daily,
+        #summary {
+            width: 100%;
+        }
+
+        #summary {
+            margin-bottom: 20px;
+        }
+
+        .interpretaion-input-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+
+        .interpretaion-input-container p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .interpretaion-input-container p:first-child {
+            font-weight: 600;
+        }
+
+        .actigram,
+        .heat-map {
+            width: 100%;
+        }
+
+        .interpretation-content-bottom {
+            text-align: left;
+            border: 1px solid #141414;
+            border-top: 0;
+        }
+
+        #interpretation-heading{
+            margin-top: 40px;
+        }
+
+        .margin{
+            margin-top: 60px;
+            margin-bottom: 10px;
+        }
+
+        .banner-bottom-margin{
+            margin-bottom: 12px;
+        }
+
+        .sleep-questionnaire-subheading{
+            font-weight: bold !important;
+            margin-top: -5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            HEADER
+        </div>
+        <div class="client-details">
+            <div class="left-con">
+                <div class="title-value">
+                    <span id="label">Client:</span>
+                    <span>11</span>
+                </div>
+                <div class="title-value">
+                    <span id="label">Age:</span>
+                    <span>35y</span>
+                </div>
+            </div>
+            <div class="right-con">
+                <div class="title-value">
+                    <span id="label">Date:</span>
+                    <span>18/01/2021</span>
+                </div>
+                <div class="title-value">
+                    <span id="label">BMI:</span>
+                    <span>22.3</span>
+                </div>
+            </div>
+        </div>
+        <div class="sleep-habits">
+            <div class="banner">
+                <h3>SLEEP HABITS</h3>
+            </div>
+            <p id="opening-remark">We assessed your current sleep habits using a sleep diary, for the period Wednesday
+                21 October 2020 - Tuesday 27 October 2020. The “Daily” table gives information for each individual day
+                and your minimum,
+                maximum, average and range values for each variable measured are in the “Summary” table.</p>
+            <!-- summary table -->
+            <div class="summary-tables">
+                <table id="summary">
+                    <thead class="headings">
+                        <tr>
+                            <% columns.forEach(item=> { %>
+                                <th>
+                                    <%= item.name %>
+                                </th>
+                                <% });%>
+                        </tr>
+                    </thead>
+                    <tbody class="rows">
+                        <% Object.keys(summary).forEach(key=> { %>
+                            <tr>
+                                <td id="side-title">
+                                    <%= key %>
+                                </td>
+                                <% Object.keys(summary[key]).forEach(k=> { %>
+                                    <td>
+                                        <%= summary[key][k] %>
+                                    </td>
+                                    <% }) %>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <table id="daily">
+                    <thead>
+                        <tr id="headingsDaily">
+                            <% headingsDaily.forEach(item=> { %>
+                                <th>
+                                    <%= item.name %>
+                                </th>
+                                <% });%>
+                        </tr>
+                    </thead>
+                    <tbody id="rowsDaily">
+                        <% Object.keys(daily).forEach(key=> { %>
+                            <tr>
+                                <td id="side-title">
+                                    <%= key %>
+                                </td>
+                                <% Object.keys(daily[key]).forEach(k=> { %>
+                                    <td>
+                                        <%= daily[key][k] %>
+                                    </td>
+                                    <% }) %>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+            <p id = "interpretation-heading">Interpretation:</p>
+            <div class="interpretation">
+                <table class="interpretation-table">
+                    <tbody class="rows-interpretations">
+                        <% Object.keys(interpretations).forEach(key=> { %>
+                            <tr class="tr-interpretation">
+
+                                <td class="side-title-interpretation">
+                                    <%= key %>
+                                </td>
+                                <% if(key.length !==0){ %>
+                                    <td class="interpretation-content">
+                                        <%= interpretations[key] %>
+                                    </td>
+                                    <% } %>
+
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <table class="general-table">
+                    <tr>
+                        <td class="interpretation-content-bottom">
+                            <%= interpretations[""] %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p class="graph-below">The graphic below visually displays your activity (black line) and light exposure
+                (yellow line) for each day. Ideally, one would like to see maximum light exposure during the day and
+                minimal exposure after sunset. The red lines beneath the black lines indicate periods when you were
+                awake (daytime) or moving a lot (sleep period). The blue vertical lines demarcate your bedtimes and
+                wake-up times. The turquoise highlighted section between this represents your sleep phase, and the
+                lighter blue indicates either your sleep latency period (i.e. the time you spent trying to fall asleep
+                at the beginning of your sleep) or your morning snoozing periods.</p>
+            <img src="https://lh4.googleusercontent.com/9YyAjnd73irzxhlDlsVLRddI5Rt_y0oqPl2M_QVtSYyYnmYw0JcpmF7ZmKT6Nl0ajelt0YSrrFUO7S4Zfvlrkh5yg_QFdMJs338UdWas4uwd4bBDZXB2FUtfkq8oHwXaPhKEvBz4=w681-h965"
+                alt="actigram" class="actigram" />
+        </div>
+        <div class="sleep-questionnaire">
+            <div class="banner margin">
+                <h3>SLEEP QUESTIONNAIRE</h3>
+            </div>
+            <p class ="sleep-questionnaire-subheading">Daytime sleepiness</p>
+            <p>The Epworth Sleepiness Scale was used to assess your current sleepiness during the day, i.e. your
+                propensity to fall asleep or doze off during the day (either intentionally or unintentionally). This may
+                sound like an unimportant measure, but it tells us a lot about how close you are to your sleep sweet
+                spot. Consistently obtaining fewer hours than your sweet spot each night results in an accumulation of
+                sleep debt. The extent of your sleep debt is directly related to your level of daytime sleepiness. Those
+                with almost no sleep debt will have minimal daytime sleepiness, while those with large sleep debt will
+                experience high levels of sleepiness during the day. We usually see higher scores in individuals with
+                sleep disorders other than insomnia (e.g. narcolepsy, sleep apnoea). Individuals who suffer from
+                insomnia associated with hyperarousal (i.e. stress or anxiety) often have very low daytime sleepiness
+                scores. Scores range from 0 to 24, with higher scores indicating greater levels of daytime sleepiness. A
+                score of 10 or more indicates excessive daytime sleepiness, while scores of 13 or more indicate
+                clinically significant daytime sleepiness.<br />
+                Your score was: <strong>
+                    <%= calculations.ESS.value %>
+                </strong></p>
+            <div id="ESS"><span style='margin-left: <%= calculations.ESS.margin %>'>✘</span></div>
+            <img src="https://lh3.googleusercontent.com/GemZITqrXSSv8sanzT2GPIp1KvltcFBVjjGK0m-TOVpiqd2zm_7d9AvpN8IIgeLBE7T33FKd8gCLbEA9ZSZ-pBfleALDeJzOVdHc8m7AcydHk3cJdrtOzL3kF9NxVT7awLoGmOS1=w681-h62"
+                alt="heat map" class="heat-map" />
+
+            <p class ="sleep-questionnaire-subheading">Fatigue severity</p>
+            <p>The Fatigue Severity Scale was used to assess your current levels of fatigue. Fatigue affects various
+                aspects of our lives, including our motivation to exercise, ability to perform everyday duties as well
+                as interfering with our work, family and social lives. Fatigue is different to sleepiness – it is really
+                a sensation of mental and or physical tiredness (compared to sleepiness which is the likelihood of
+                falling asleep during the day). We typically see higher fatigue scores in individuals suffering from a
+                disease or illness, who are mentally exhausted, who have very high stress or anxiety levels or who
+                suffer from insomnia. A score of 4 or more is used as a clinical cut-off suggestive of significant
+                levels of fatigue.<br />
+                Your score was: <strong>
+                    <%= calculations.FSS.value %>
+                </strong></p>
+            <div id="FSS"><span style='margin-left: <%= calculations.FSS.margin %>'>✘</span></div>
+            <img src="https://lh3.googleusercontent.com/kTJrUd9awgvIKCg8jk0Tw5gXEcJm5QRG2xn3xgM7exJ8elCzWmrv9UnlrXjYs40gR11BFfy4hvQaex8OncpQ9GhCXw-4HTpF22rAyIrSJ76fVJmc1-zR1JFqEqNDS2mzousWqDJj=w681-h62"
+                alt="heat map" class="heat-map" />
+
+
+            <p class ="sleep-questionnaire-subheading">Insomnia</p>
+            <p>The Insomnia Severity Index was used to assess the likelihood that you currently suffer from insomnia,
+                and the nature thereof. Insomnia is a common sleeping disorder which is characterized by a difficulty in
+                falling asleep, staying asleep or waking too early. The effects of insomnia are profound and carry
+                significant burden on one’s daytime functioning, productivity, physical and mental health. Symptoms may
+                include feeling irritable, feeling sleepy, experiencing mood swings, and difficulty concentrating.<br />
+                Your score was: <strong>
+                    <%= calculations.ISI.value %>
+                </strong></p>
+            <div id="ISI"><span style='margin-left: <%= calculations.ISI.margin %>'>✘</span></div>
+            <img src="https://lh6.googleusercontent.com/MgzIccPSFdSMGm_Qyw5pxF8kyD23Wt5zzOCtZreNMOu-JnEUVePaT07oYNQjQ1Z9Ng-VxKYV9SWHQ6CL-1-RHm18EyzQb-hlniCegOHuVbmn0zqzudi5FkIa4JENE_5IQB4d9iyn=w681-h62"
+                alt="heat map" class="heat-map" />
+        </div>
+        <div class="sleep-profile">
+            <div class="banner banner-bottom-margin">
+                <h3>SLEEP PROFILE</h3>
+            </div>
+            <div class="graph" id="graph">
+
+
+                <% values.forEach(item=> { %>
+                    <div class="flex">
+                        <span>
+                            <%= Object.keys(item)[0] %>
+                        </span>
+                        <div class="bar"
+                            style='width: <%= item[Object.keys(item)[0]].width %>; background-color: <%= item[Object.keys(item)[0]].colour %>'
+                            id="width"></div>
+                    </div>
+
+                    <% });%>
+            </div>
+            <p class="sleep-profile-info">This profile provides an overview of your sleep and daytime function. Red
+                indicates lower scores (1-3), amber scores (4-7) are intermediate and green scores (8-10) are ideal.
+
+                <br /><br /><strong>Sleep opportunity.</strong> This is the time you give yourself to sleep each night.
+                Recommendations
+                are that 7-9h per
+                night is optimal for most people. This score is determined from your sleep opportunity during the
+                measurement week as well as how close this seems to be to your sleep sweet spot, based on your daytime
+                function and other aspects of sleep hygiene.
+
+                <br /><br /><strong>Sleep regularity.</strong> This is based on the consistency of your bedtimes,
+                wake-up
+                times and
+                sleep durations from
+                night to night. As a rule, we like this to be within a 1.5h range in any given week. Our bodies love
+                rhythm
+                and routine; as such having consistent sleep patterns helps establish a strong sleep-wake pattern which
+                helps our bodies better anticipate sleep.
+
+                <br /><br /><strong>Sleep satisfaction.</strong> This is your overall impression of your sleep during
+                the
+                monitoring
+                week, and might
+                relate to how long your sleep is, how deep or light it is, or whether or not it is continuous or
+                fragmented.
+
+                <br /><br /><strong>Restorative value of sleep.</strong> A key function of sleep is to press the
+                proverbial
+                “reset”
+                button on your
+                physical, cognitive and emotional functioning. Following a night of good sleep, we should feel restored,
+                recharged, revitalised – ready for a new day. Sleep which is not restorative is considered suboptimal.
+
+                <br /><br /> <strong>Daytime sleepiness.</strong> This is based on your daytime sleepiness score
+                presented
+                on the
+                previous page.
+
+                <br /><br /><strong>Daytime fatigue.</strong> This is based on your daytime sleepiness score presented
+                on
+                the previous
+                page.
+
+                <br /><br /><strong>Daytime alertness.</strong> This is your estimate of your alertness during the day –
+                a
+                key indicator
+                that your sleep
+                is restorative.
+
+                <br /><br /><strong>Daytime dysfunction.</strong> This refers to the extent to which your sleep troubles
+                interfere with
+                your ability to
+                function at work or complete your daily chores. It may manifest as lower productivity, forgetfulness,
+                inability to multitask, less creativity, reduced problem-solving ability, fluctuations in mood or
+                irritability.
+
+                <br /><br /><strong>Sleep medication use.</strong> Ideally, one would not use sleeping medication,
+                unless
+                for a specific
+                reason, for a
+                defined period of time, under the supervision of your doctor, with a defined plan to wean off.
+
+            </p>
+        </div>
+        <div class="observations-and-recommendations">
+            <div class="banner margin">
+                <h3>OBSERVATIONS AND RECOMMENDATIONS</h3>
+            </div>
+            <div class="interpretaion-input-container">
+                <p>Primary complaint:</p>
+                <p>testing</p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Medical and mental helath history:</p>
+                <p>Nil</p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Current medications / supplements:</p>
+                <p>Trepeline, Zopivane, Rivotril, Dormonoct, Vitamin C, Magnesium, Tranquil </p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Risk for common sleep disorders:</p>
+                <p>Insomnia:
+                    <br />Sleep-related breathing disorders: Obstructive sleep apnoea risk was assessed with the
+                    STOP-BANG
+                    tool. Your score was 4, indicating high risk.
+                    <br />Narcolepsy: No further investigations indicated.
+                    <br />Restless leg syndrome: No further investigations indicated.
+                    <br />Bruxism: No further investigations indicated
+                </p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Sleep assessment:</p>
+                <p>testing</p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Way forward:</p>
+                <p>testing</p>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+
+    </div>
+
+</body>
+
+
+</html>

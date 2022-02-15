@@ -1,0 +1,124 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.ImageContainer {
+    /* height: 100%; */
+    width: 50%;
+    min-width: 284px;
+    height: fit-content;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* .ImageContainer img {
+    max-width: 100%;
+    max-height: 100%;
+} */
+
+.ImageContainer img {
+    height: 70px;
+}
+
+.SuccessList, .FailList{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+.FailList{
+    margin-top: 10px !important;
+}
+
+.SuccessList li {
+    background: url('../../../Assets//Icons/verified.svg') no-repeat left top;
+    padding: 3px 0px 3px 32px;
+    list-style: none;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.FailList li {
+    background: url('../../../Assets//Icons/issue-opened.svg') no-repeat 2px top;
+    padding: 3px 0px 3px 35.5px;
+    list-style: none;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #7ac142;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #7ac142;
+    fill: none;
+    animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 10% auto;
+    box-shadow: inset 0px 0px 0px #7ac142;
+    animation: fill .3s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    margin-bottom: 2px;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 36px #7ac142;
+    }
+}
+
+.ButtonGroup {
+    /* width: 100%; */
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}

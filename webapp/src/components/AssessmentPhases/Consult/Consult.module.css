@@ -1,0 +1,242 @@
+.Container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.Header {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.LineRule {
+    border-bottom: 1px solid #CECECE;
+    margin: 13px 22px;
+    margin-right: 0;
+    width: auto;
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    align-self: center;
+}
+
+.Container h5 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.RichEditorContainer {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 8px;
+    position: relative;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+    margin-bottom: 20px;
+}
+
+.EditorClass {
+    /* display: flex; */
+    background-color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: 1px solid #EFF1F3;
+    position: relative;
+    min-height: 400px;
+}
+
+.UploadButton {
+    display: flex;
+    border-radius: 8px;
+    margin-top: 5px;
+    background: #8bb8e8;
+    height: 36px;
+    width: 120px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.Inner {
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.Inner div {
+    margin-left: 20px;
+}
+
+.Inner h3 {
+    margin: 0;
+    margin-bottom: 2px;
+    color: #A1A5B1;
+}
+.FileUploaded {
+    display: flex;
+    margin-left: 0 !important;
+    margin-bottom: 4px;
+}
+.Inner span {
+    font-size: 12px;
+    color: #A1A5B1;
+}
+
+.UploadButton input[type="file"] {
+    display: none;
+}
+
+.UploadedConsult a, .UploadedConsult button{
+    height: 26px;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 0;
+    color: #A1A5B1;
+    font-weight: 600;
+    cursor: pointer;
+    transform: all 0.2s linear;
+    width: fit-content;
+    padding: 0;
+    margin-right: 10px;
+    margin-left: 1px;
+    outline: none;
+    text-decoration: underline;
+
+}
+
+.UploadedConsult button:hover, .UploadedConsult a:hover{
+    color: #8bb8e8;
+}
+
+.InfoBlock {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #F8EFC3;
+    border: 1px solid #EFF1F3;
+    border-radius: 8px;
+    padding: 14px 20px;
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.WrapperEditor {
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 25px !important;
+    min-height: 400px !important;
+    box-sizing: content-box;
+}
+
+.Container iframe {
+    border-radius: 12px;
+    border: 0;
+    height: 90vh;
+    margin-bottom: 40px;
+}
+
+.ButtonToggleGroup {
+    display: flex;
+    margin-right: 20px;
+    height: 40px;
+    border-radius: 8px;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 5px 6px;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.WrittenNotes, .UploadNotes {
+    align-items: center;
+    display: flex;
+    height: 86%;
+    cursor: pointer;
+    padding: 0 15px;
+    color: rgb(36, 36, 36);
+    border-radius: 4px;
+    transition: all 0.15s linear;
+    width: 110px;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.WrittenNotes_active, .UploadNotes_active {
+    font-weight: 600;
+    align-items: center;
+    display: flex;
+    height: 86%;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0 15px;
+    background-color: #E6ECF2;
+    transition: all 0.15s linear;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+    width: 110px;
+    border: 0;
+    outline: none;
+    justify-content: center;
+}
+
+.FlexContainer {
+    display: flex;
+}
+
+.UploadContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.8px dashed transparent;
+    height: 200px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    width: 50%;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+    position: relative;
+}
+
+.DashedBoarder{
+    border: 1px dashed #A1A5B1;
+    width: 95%;
+    height: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+@media only screen and (max-width: 1448px) {
+    .InfoBlock {
+        top: 110px;
+    }
+}
+
+/* @media only screen and (max-width: 1192px) {
+    .InfoBlock {
+        top: 150px;
+    }
+} */

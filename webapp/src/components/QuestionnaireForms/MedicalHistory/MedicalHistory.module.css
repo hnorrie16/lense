@@ -1,0 +1,7 @@
+.Form{
+    display: flex;
+    flex-direction: column;
+}
+.Form input{
+    height: 30px;
+}

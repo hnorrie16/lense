@@ -1,0 +1,43 @@
+.Primary {
+    background-color: #8bb8e8;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    padding: 7px;
+    border: 0;
+    text-align: center;
+    width: 160px;
+    border-radius: 8px;
+    margin-top: 14px;
+    outline: none;
+    height: 36px;
+    margin-left: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.Secondary {
+    background-color: transparent;
+    border: 0;
+    color: #000;
+    cursor: pointer;
+    font: inherit;
+    padding: 7px;
+    text-align: center;
+    width: 120px;
+    border-radius: 8px;
+    margin-top: 14px;
+    outline: none;
+    height: 36px;
+    text-transform: uppercase;
+    transition: all 0.2s linear;
+    font-weight: 600;
+    text-align: center;
+}
+
+.Secondary:hover{
+    transition: all 0.2s linear;
+    background-color: #8bb8e821;
+}

@@ -1,0 +1,102 @@
+.Container {
+    height: 100%;
+    padding: 0 80px;
+    margin-top: 30px;
+}
+
+@-moz-document url-prefix() {
+    .Container {
+        margin-left: 240px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    @-moz-document url-prefix() {
+        .Container {
+            margin-left: 200px;
+        }
+    }
+}
+
+.TabNavigation {
+    width: inherit;
+    height: 74px;
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+    padding: 0 80px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+}
+
+.Header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.Dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.ClientInfo {
+    display: flex;
+    align-items: center;
+}
+
+.ClientInfo h2 {
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.Dropdown span {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-decoration: underline;
+}
+
+.Dropdown select {
+    position: relative;
+    display: flex;
+    height: 42px;
+    width: 160px;
+    border-radius: 8px;
+    border: none;
+    padding: 0 10px;
+    font-size: 17px;
+    outline: none;
+    margin-right: 12px;
+}
+
+.ProfileImage {
+    border-radius: 100%;
+    border: 2px solid #5F6162;
+    height: 42px;
+    width: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 1537px){
+    .TabNavigation{
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 1258px){
+    .TabNavigation{
+        padding: 0 20px;
+    }
+}

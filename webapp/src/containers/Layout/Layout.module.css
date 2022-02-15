@@ -1,0 +1,37 @@
+.Content {
+    position: relative;
+    float: right;
+    width: -webkit-calc(100% - 240px);
+    /* height: -webkit-calc(100vh - 56px); */
+    overflow: hidden;
+    /* margin-top: 56px; */
+}
+
+@-moz-document url-prefix() {
+    .Content {
+        width: 100vw;
+        margin-left: 240px;
+        height: 90vh;
+        overflow: hidden;
+        margin-top: 56px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .Content{
+        width: -webkit-calc(100% - 200px);
+    }
+    @-moz-document url-prefix() {
+        .Content {
+            margin-left: 200px;
+        }
+    }
+}
+
+.ContentSignIn {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}

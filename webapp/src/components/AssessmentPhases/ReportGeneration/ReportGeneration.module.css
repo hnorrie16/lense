@@ -1,0 +1,100 @@
+.PDFViewerContainer {
+    display: flex;
+    flex-direction: column;
+    box-sizing: inherit;
+    /* height: 29.7cm; */
+    align-items: center;
+    width: 100%;
+    overflow-y: auto;
+    background-color: #525659;
+    border-radius: 12px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    min-height: 100vh;
+    /* position: relative; */
+}
+
+.Page {
+    margin-top: 30px;
+}
+
+.PDFViewer {
+    border-radius: 12px;
+    border: none;
+    height: 100%;
+}
+
+.Container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+    position: relative;
+}
+
+.Container h5 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    /* margin-right: 10px; */
+}
+
+.Header {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.LineRule {
+    border-bottom: 1px solid #CECECE;
+    margin: 13px 22px;
+    margin-right: 0;
+    width: auto;
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    align-self: center;
+}
+
+.ActionContainer {
+    position: fixed;
+    right: 15px;
+    top: 258px;
+}
+
+.ActionButton {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.ActionContainer form{
+    width: 54px;
+    height: 54px;
+}
+
+.ActionContainer button{
+    width: 54px;
+    height: 54px;
+}
+
+.PDFContainer {
+    background-color: #fff;
+    display: flex;
+    /* width: 80%; */
+    flex-direction: column;
+    width: 22cm;
+    height: 29.7cm;
+}
+
+.PDFContainer img {
+    height: 200px;
+    width: 200px;
+}

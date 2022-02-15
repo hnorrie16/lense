@@ -1,0 +1,182 @@
+.ModalVisible {
+    position: absolute;
+    z-index: 500;
+    background-color: #fff;
+    min-width: 600px;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 14%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 9px;
+    /* visibility: visible;
+    animation: modal;
+    animation-duration: 1s; */
+    max-width: 790px;
+    transition: all .5s ease-in-out;
+}
+.HideModal{
+    top: -40%;
+    transition: all .5s ease-in-out;
+}
+
+.CloseCross {
+    height: 17px;
+    cursor: pointer;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.CloseCross:hover {
+    background-color: #d9e1ebb0;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+}
+
+.InnerModalContainer {
+    position: relative;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.Header {
+    display: flex;
+    border-bottom: 1px solid #F1F2F3;
+    align-items: center;
+    padding: 20px 35px;
+    padding-right: 22px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.Header h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.UploadContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #737272;
+    height: 200px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #F3F4F5;
+}
+
+.UploadButton {
+    display: flex;
+    border-radius: 8px;
+    margin-top: 5px;
+    background: #8bb8e8;
+    height: 36px;
+    width: 120px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.UploadButton input[type="file"] {
+    display: none;
+}
+
+.Inner span {
+    font-size: 12px;
+    color: #A1A5B1;
+}
+
+.Inner {
+    display: flex;
+    align-items: center;
+}
+
+.Inner div {
+    margin-left: 20px;
+}
+
+.Inner h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    color: #A1A5B1;
+}
+
+.Inner button {
+    height: 36px;
+    width: 140px;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 2px solid #8bb8e8;
+    color: #8bb8e8;
+    cursor: pointer;
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ScrollingContainer {
+    margin-top: 20px;
+    overflow-y: auto;
+    z-index: 9;
+    height: 500px;
+    /* margin-bottom: 100px; */
+    position: relative;
+}
+
+.Table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Table th{
+    text-align: left;
+    /* padding-left: 8px; */
+    position: sticky;
+    top: 0;
+    background-color: #F3F5F7;
+    padding: 8px;
+    z-index: 10;
+}
+
+.Data {
+    border-bottom: 1px solid #ddddddbb;
+    text-align: left;
+    padding: 8px;
+    /* font-weight: 600;
+    color: rgb(19, 19, 19); */
+}
+
+/* .DataHeadings {
+    border-bottom: 1px solid #ddddddbb;
+    text-align: left;
+    width: 30%;
+    padding: 8px;
+} */
+
+.Row:nth-child(even) {
+    background-color: #F3F5F7;
+}
+
+.ConfirmModalCustom{
+    z-index: 550 !important;
+}

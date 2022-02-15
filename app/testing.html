@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>PDF Result Template</title>
+    <style>
+        .container {
+            width: 21cm;
+            /* height: 29.7cm; */
+            margin: auto;
+            padding: 70px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 16px;
+            line-height: 24px;
+            box-sizing: border-box;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .flex span {
+            width: 150px;
+        }
+
+        .bar {
+            height: 35px;
+            width: 35px;
+        }
+
+        .graph {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sleep-profile-info {
+            /* white-space: pre-wrap; */
+        }
+
+        .client-details {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .title-value {
+            display: flex;
+        }
+
+        #label {
+            display: flex;
+            font-weight: 600;
+            width: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            /* border: 1px solid #ddd; */
+            border-bottom: 1px solid #141414;
+            /* border-width: 1px 0; */
+        }
+
+        th,
+        td {
+            text-align: center;
+            /* border-bottom: 1px solid #ddd; */
+            width: fit-content;
+            padding: 9px 8px;
+
+        }
+
+        td {
+            font-size: 13px;
+            /* white-space: nowrap; */
+        }
+
+        th {
+            font-size: 14px;
+        }
+
+        #side-title {
+            font-weight: 600;
+        }
+
+        #side-title-interpretation {
+            font-weight: 600;
+            text-align: left;
+            padding: 0;
+            width: 100px !important;
+            border-right: 1px solid #141414;
+            padding-left: 10px
+        }
+
+        #interpretation-content {
+            text-align: left;
+        }
+
+        #interpretation-content-single {
+            text-align: left;
+            /* width: 100%; */
+        }
+
+        #tr-interpretation {
+            border: 1px solid #141414;
+        }
+
+        #daily thead:first-child,
+        #summary thead:first-child {
+            width: 100px;
+        }
+
+        .interpretaion-input-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+
+        .interpretaion-input-container p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .interpretaion-input-container p:first-child {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            HEADER
+        </div>
+        <div class="client-details">
+            <div class="left-con">
+                <div class="title-value">
+                    <span id="label">Client:</span>
+                    <span>11</span>
+                </div>
+                <div class="title-value">
+                    <span id="label">Age:</span>
+                    <span>35y</span>
+                </div>
+            </div>
+            <div class="right-con">
+                <div class="title-value">
+                    <span id="label">Date:</span>
+                    <span>18/01/2021</span>
+                </div>
+                <div class="title-value">
+                    <span id="label">BMI:</span>
+                    <span>22.3</span>
+                </div>
+            </div>
+        </div>
+        <div class="sleep-habits">
+            <div class="banner">
+                <h3>SLEEP HABITS</h3>
+            </div>
+            <p>We assessed your current sleep habits using a sleep diary, for the period Wednesday 21 October 2020 -
+                Tuesday 27 October 2020. The “Daily” table gives information for each individual day and your minimum,
+                maximum, average and range values for each variable measured are in the “Summary” table.</p>
+            <!-- summary table -->
+            <div class="summary-tables">
+                <table id="summary">
+                    <thead>
+                        <tr id="headings">
+                        </tr>
+                    </thead>
+                    <tbody id="rows">
+                    </tbody>
+                </table>
+                <table id="daily">
+                    <thead>
+                        <tr id="headingsDaily">
+                        </tr>
+                    </thead>
+                    <tbody id="rowsDaily">
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Interpretation:</p>
+            <div class="interpretation">
+                <!-- table explaining some of the data points -->
+                <table>
+                    <tbody id="rows-interpretations">
+                    </tbody>
+                </table>
+            </div>
+            <p class="graph-below">The graphic below visually displays your activity (black line) and light exposure
+                (yellow line) for each day. Ideally, one would like to see maximum light exposure during the day and
+                minimal exposure after sunset. The red lines beneath the black lines indicate periods when you were
+                awake (daytime) or moving a lot (sleep period). The blue vertical lines demarcate your bedtimes and
+                wake-up times. The turquoise highlighted section between this represents your sleep phase, and the
+                lighter blue indicates either your sleep latency period (i.e. the time you spent trying to fall asleep
+                at the beginning of your sleep) or your morning snoozing periods.</p>
+            <img src="https://lh4.googleusercontent.com/9YyAjnd73irzxhlDlsVLRddI5Rt_y0oqPl2M_QVtSYyYnmYw0JcpmF7ZmKT6Nl0ajelt0YSrrFUO7S4Zfvlrkh5yg_QFdMJs338UdWas4uwd4bBDZXB2FUtfkq8oHwXaPhKEvBz4=w681-h965"
+                alt="actigram" />
+        </div>
+        <div class="sleep-questionnaire">
+            <div class="banner">
+                <h3>SLEEP QUESTIONNAIRE</h3>
+            </div>
+            <p>Daytime sleepiness</p>
+            <p>The Epworth Sleepiness Scale was used to assess your current sleepiness during the day, i.e. your
+                propensity to fall asleep or doze off during the day (either intentionally or unintentionally). This may
+                sound like an unimportant measure, but it tells us a lot about how close you are to your sleep sweet
+                spot. Consistently obtaining fewer hours than your sweet spot each night results in an accumulation of
+                sleep debt. The extent of your sleep debt is directly related to your level of daytime sleepiness. Those
+                with almost no sleep debt will have minimal daytime sleepiness, while those with large sleep debt will
+                experience high levels of sleepiness during the day. We usually see higher scores in individuals with
+                sleep disorders other than insomnia (e.g. narcolepsy, sleep apnoea). Individuals who suffer from
+                insomnia associated with hyperarousal (i.e. stress or anxiety) often have very low daytime sleepiness
+                scores. Scores range from 0 to 24, with higher scores indicating greater levels of daytime sleepiness. A
+                score of 10 or more indicates excessive daytime sleepiness, while scores of 13 or more indicate
+                clinically significant daytime sleepiness.<br />
+                Your score was: <strong>9</strong></p>
+            <div id="ESS"></div>
+            <img src="https://lh3.googleusercontent.com/GemZITqrXSSv8sanzT2GPIp1KvltcFBVjjGK0m-TOVpiqd2zm_7d9AvpN8IIgeLBE7T33FKd8gCLbEA9ZSZ-pBfleALDeJzOVdHc8m7AcydHk3cJdrtOzL3kF9NxVT7awLoGmOS1=w681-h62"
+                alt="heat map" />
+
+
+            <p>Fatigue severity</p>
+            <p>The Fatigue Severity Scale was used to assess your current levels of fatigue. Fatigue affects various
+                aspects of our lives, including our motivation to exercise, ability to perform everyday duties as well
+                as interfering with our work, family and social lives. Fatigue is different to sleepiness – it is really
+                a sensation of mental and or physical tiredness (compared to sleepiness which is the likelihood of
+                falling asleep during the day). We typically see higher fatigue scores in individuals suffering from a
+                disease or illness, who are mentally exhausted, who have very high stress or anxiety levels or who
+                suffer from insomnia. A score of 4 or more is used as a clinical cut-off suggestive of significant
+                levels of fatigue.<br />
+                Your score was: <strong>6.78</strong></p>
+            <div id="FSS"></div>
+            <img src="https://lh3.googleusercontent.com/kTJrUd9awgvIKCg8jk0Tw5gXEcJm5QRG2xn3xgM7exJ8elCzWmrv9UnlrXjYs40gR11BFfy4hvQaex8OncpQ9GhCXw-4HTpF22rAyIrSJ76fVJmc1-zR1JFqEqNDS2mzousWqDJj=w681-h62"
+                alt="heat map" />
+
+
+            <p>Insomnia</p>
+            <p>The Insomnia Severity Index was used to assess the likelihood that you currently suffer from insomnia,
+                and the nature thereof. Insomnia is a common sleeping disorder which is characterized by a difficulty in
+                falling asleep, staying asleep or waking too early. The effects of insomnia are profound and carry
+                significant burden on one’s daytime functioning, productivity, physical and mental health. Symptoms may
+                include feeling irritable, feeling sleepy, experiencing mood swings, and difficulty concentrating.<br />
+                Your score was: <strong>18</strong></p>
+            <div id="ISI"></div>
+            <img src="https://lh6.googleusercontent.com/MgzIccPSFdSMGm_Qyw5pxF8kyD23Wt5zzOCtZreNMOu-JnEUVePaT07oYNQjQ1Z9Ng-VxKYV9SWHQ6CL-1-RHm18EyzQb-hlniCegOHuVbmn0zqzudi5FkIa4JENE_5IQB4d9iyn=w681-h62"
+                alt="heat map" />
+        </div>
+        <div class="sleep-profile">
+            <div class="banner">
+                <h3>SLEEP PROFILE</h3>
+            </div>
+            <div class="graph" id="graph">
+                <!-- this is the heat map of the sleep profile -->
+            </div>
+            <p class="sleep-profile-info">This profile provides an overview of your sleep and daytime function. Red
+                indicates lower scores (1-3), amber scores (4-7) are intermediate and green scores (8-10) are ideal.
+
+                <br /><br /><strong>Sleep opportunity.</strong> This is the time you give yourself to sleep each night.
+                Recommendations
+                are that 7-9h per
+                night is optimal for most people. This score is determined from your sleep opportunity during the
+                measurement week as well as how close this seems to be to your sleep sweet spot, based on your daytime
+                function and other aspects of sleep hygiene.
+
+                <br /><br /><strong>Sleep regularity.</strong> This is based on the consistency of your bedtimes,
+                wake-up
+                times and
+                sleep durations from
+                night to night. As a rule, we like this to be within a 1.5h range in any given week. Our bodies love
+                rhythm
+                and routine; as such having consistent sleep patterns helps establish a strong sleep-wake pattern which
+                helps our bodies better anticipate sleep.
+
+                <br /><br /><strong>Sleep satisfaction.</strong> This is your overall impression of your sleep during
+                the
+                monitoring
+                week, and might
+                relate to how long your sleep is, how deep or light it is, or whether or not it is continuous or
+                fragmented.
+
+                <br /><br /><strong>Restorative value of sleep.</strong> A key function of sleep is to press the
+                proverbial
+                “reset”
+                button on your
+                physical, cognitive and emotional functioning. Following a night of good sleep, we should feel restored,
+                recharged, revitalised – ready for a new day. Sleep which is not restorative is considered suboptimal.
+
+                <br /><br /> <strong>Daytime sleepiness.</strong> This is based on your daytime sleepiness score
+                presented
+                on the
+                previous page.
+
+                <br /><br /><strong>Daytime fatigue.</strong> This is based on your daytime sleepiness score presented
+                on
+                the previous
+                page.
+
+                <br /><br /><strong>Daytime alertness.</strong> This is your estimate of your alertness during the day –
+                a
+                key indicator
+                that your sleep
+                is restorative.
+
+                <br /><br /><strong>Daytime dysfunction.</strong> This refers to the extent to which your sleep troubles
+                interfere with
+                your ability to
+                function at work or complete your daily chores. It may manifest as lower productivity, forgetfulness,
+                inability to multitask, less creativity, reduced problem-solving ability, fluctuations in mood or
+                irritability.
+
+                <br /><br /><strong>Sleep medication use.</strong> Ideally, one would not use sleeping medication,
+                unless
+                for a specific
+                reason, for a
+                defined period of time, under the supervision of your doctor, with a defined plan to wean off.
+
+            </p>
+        </div>
+        <div class="observations-and-recommendations">
+            <div class="banner">
+                <h3>OBSERVATIONS AND RECOMMENDATIONS</h3>
+            </div>
+            <div class="interpretaion-input-container">
+                <p>Primary complaint:</p>
+                <p>testing</p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Medical and mental helath history:</p>
+                <p>Nil</p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Current medications / supplements:</p>
+                <p>Trepeline, Zopivane, Rivotril, Dormonoct, Vitamin C, Magnesium, Tranquil </p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Risk for common sleep disorders:</p>
+                <p>Insomnia:
+                    <br />Sleep-related breathing disorders: Obstructive sleep apnoea risk was assessed with the
+                    STOP-BANG
+                    tool. Your score was 4, indicating high risk.
+                    <br />Narcolepsy: No further investigations indicated.
+                    <br />Restless leg syndrome: No further investigations indicated.
+                    <br />Bruxism: No further investigations indicated
+                </p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Sleep assessment:</p>
+                <p>testing</p>
+            </div>
+
+            <div class="interpretaion-input-container">
+                <p>Way forward:</p>
+                <p>testing</p>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+    <script>
+        const formatKeys = (key) => {
+            let temp = key.replace(/_/g, " ").toLowerCase()
+            return temp.charAt(0).toUpperCase() + temp.slice(1) + ":";
+        }
+        let values = {
+            bedtime_regularity: { value: 8, colour: "#4DAA59" },
+            daytime_alertness: { value: 8, colour: "#4DAA59" },
+            daytime_dysfunction: { value: 5, colour: "#F5C142" },
+            daytime_fatigue: { value: 3, colour: "Red" },
+            daytime_sleepiness: { value: 7, colour: "#F5C142" },
+            sleep_opportunity: { value: 7, colour: "#F5C142" },
+            sleep_restoration: { value: 10, colour: "#4DAA59" },
+            sleep_satisfaction: { value: 1, colour: "Red" },
+            sleepmed_use: { value: 1, colour: "Red" },
+            timeinbed_regularity: { value: 5, colour: "#F5C142" },
+            wakeup_regularity: { value: 4, colour: "#F5C142" }
+        }
+        let bars = Object.keys(values).map(key => {
+            return (
+                `<div class="flex">
+                    <span>${formatKeys(key)}</span>
+                    <div class="bar" style="width: ${50 * values[key].value}px; background-color: ${values[key].colour}"></div>
+                </div>`
+            )
+        })
+        document.getElementById("graph").innerHTML = bars.join(" ")
+
+
+        let columns = [
+            { name: "SUMMARY", selector: "SUMMARY" },
+            { name: "Bedtime", selector: "Bedtime" },
+            { name: "Wake-up time", selector: "Wake-up time" },
+            { name: "Time-in-bed (h:min:s)", selector: "Time-in-bed (h:min:s)" },
+            { name: "Total sleep time (h:min:s)", selector: "Total sleep time (h:min:s)" },
+            { name: "Onset latency (min)", selector: "Onset latency (min)" },
+            { name: "Sleep efficiency (%)", selector: "Sleep efficiency (%)" },
+            { name: "WASO (min)", selector: "WASO (min)" },
+            { name: "No of arousals", selector: "No of arousals" },
+            { name: "Arousal index", selector: "Arousal index" }
+        ]
+
+        columns = columns.map(column => (
+            `<th>${column.name}</th>`
+        ))
+
+        document.getElementById("headings").innerHTML = columns.join(" ")
+
+        let summary = {
+            "minimum": {
+                "bedtime": "20:59:45",
+                "wakeup_time": "02:53:00",
+                "time_in_bed": "05:29:30",
+                "sleep_time": "00:09:15",
+                "onset_latency": 0,
+                "sleep_efficiency": 2.65,
+                "waso": 0.75,
+                "no_arousals": 2
+            },
+            "maximum": {
+                "bedtime": "22:05:30",
+                "wakeup_time": "06:22:45",
+                "time_in_bed": "08:26:00",
+                "sleep_time": "06:18:45",
+                "onset_latency": 236.5,
+                "sleep_efficiency": 80.73,
+                "waso": 114.5,
+                "no_arousals": 85
+            },
+            "average": {
+                "bedtime": "21:39:00",
+                "wakeup_time": "04:32:27",
+                "time_in_bed": "06:53:27",
+                "sleep_time": "04:22:25",
+                "onset_latency": 64.96,
+                "sleep_efficiency": 62.98,
+                "waso": 64,
+                "no_arousals": 41.71
+            }
+        }
+
+        let rows = Object.keys(summary).map(key => (
+            `<tr>
+                <td id ="side-title">${key}</td>
+                ${Object.keys(summary[key]).map(k => (
+
+                `<td>${summary[key][k]}</td>`
+            )).join(" ")}
+            </tr>`
+        )
+        )
+
+        document.getElementById("rows").innerHTML = rows.join(" ")
+
+        let headingsDaily = [
+            { name: "DAILY", selector: "DAILY" },
+            { name: "Bedtime", selector: "Bedtime" },
+            { name: "Wake-up time", selector: "Wake-up time" },
+            { name: "Time-in-bed (h:min:s)", selector: "Time-in-bed (h:min:s)" },
+            { name: "Total sleep time (h:min:s)", selector: "Total sleep time (h:min:s)" },
+            { name: "Onset latency (min)", selector: "Onset latency (min)" },
+            { name: "Sleep efficiency (%)", selector: "Sleep efficiency (%)" },
+            { name: "WASO (min)", selector: "WASO (min)" },
+            { name: "No of arousals", selector: "No of arousals" },
+            { name: "Arousal index", selector: "Arousal index" }
+        ]
+
+        headingsDaily = headingsDaily.map(column => (
+            `<th>${column.name}</th>`
+        ))
+
+        let daily = {
+            "monday 2020/11/02": {
+                "bedtime": "21:23",
+                "wakeup_time": "2:53",
+                "time_in_bed": "5:29",
+                "sleep_time": "4:26:00",
+                "onset_latency": "41.5",
+                "sleep_efficiency": "80.73",
+                "waso": "15.25",
+                "no_arousals": "18",
+                "arousal_index": "4.06"
+            },
+            "tuesday 2020/11/03": {
+                "bedtime": "22:05",
+                "wakeup_time": "3:39",
+                "time_in_bed": "5:34",
+                "sleep_time": "4:22:30",
+                "onset_latency": "1",
+                "sleep_efficiency": "78.53",
+                "waso": "70.5",
+                "no_arousals": "30",
+                "arousal_index": "6.87"
+            },
+            "wednesday 2020/11/04": {
+                "bedtime": "21:44",
+                "wakeup_time": "3:33",
+                "time_in_bed": "5:49",
+                "sleep_time": "0:09:15",
+                "onset_latency": "236.5",
+                "sleep_efficiency": "2.65",
+                "waso": "0.75",
+                "no_arousals": "2",
+                "arousal_index": "13.33"
+            },
+            "thursday 2020/11/05": {
+                "bedtime": "22:00",
+                "wakeup_time": "6:00",
+                "time_in_bed": "7:59",
+                "sleep_time": "4:00:45",
+                "onset_latency": "127.5",
+                "sleep_efficiency": "50.18",
+                "waso": "109.75",
+                "no_arousals": "85",
+                "arousal_index": "21.25"
+            },
+            "friday 2020/11/06": {
+                "bedtime": "21:56",
+                "wakeup_time": "6:22",
+                "time_in_bed": "8:26",
+                "sleep_time": "6:18:45",
+                "onset_latency": "47",
+                "sleep_efficiency": "76.21",
+                "waso": "57.25",
+                "no_arousals": "45",
+                "arousal_index": "7.14"
+            },
+            "saturday 2020/11/07": {
+                "bedtime": "20:59",
+                "wakeup_time": "5:06",
+                "time_in_bed": "8:06",
+                "sleep_time": "5:51:15",
+                "onset_latency": "1.25",
+                "sleep_efficiency": "72.2",
+                "waso": "114.5",
+                "no_arousals": "77",
+                "arousal_index": "13.16"
+            },
+            "sunday 2020/11/08": {
+                "bedtime": "21:22",
+                "wakeup_time": "4:11",
+                "time_in_bed": "6:48",
+                "sleep_time": "5:28:30",
+                "onset_latency": "0",
+                "sleep_efficiency": "80.37",
+                "waso": "80",
+                "no_arousals": "35",
+                "arousal_index": "6.40"
+            }
+        }
+
+        let rowsDaily = Object.keys(daily).map(key => (
+            `<tr>
+                <td >${key}</td>
+                ${Object.keys(daily[key]).map(k => (
+
+                `<td>${daily[key][k]}</td>`
+            )).join(" ")}
+            </tr>`
+        )
+        )
+
+        document.getElementById("rowsDaily").innerHTML = rowsDaily.join(" ")
+        document.getElementById("headingsDaily").innerHTML = headingsDaily.join(" ")
+
+        let interpretations = {
+            "Time-in-bed:": "As indicated by your markers (Actiwatch) and sleep diary. Recommended for adults: 7-9h.",
+            "Total sleep time:": "Actual time asleep as estimated by the Actiwatch based on your movements.",
+            "Onset latency:": "Time difference between “lights out” – i.e. you actively deciding to start to sleep and the time at which the Actiwatch estimates that you fall asleep. Normal is >5 but <20min.",
+            "Sleep efficiency:": "The ratio of your “total sleep time” and “time-in-bed” – i.e. the time you were actually asleep while in bed trying to sleep. Normal is >85%. Very good is >95%.",
+            "WASO:": "Time awake during sleep phase: The number of minutes the Actiwatch calculated that you were awake during your sleep period. Ideally this should be as low as possible.",
+            "No. of arousals:": "The number of times the Actiwatch estimates you wake up (or your sleep lightens) during the night. Ideally this should be as low as possible.",
+            "": "In general, healthy sleeping patterns are considered to have consistent wake-up times, bedtimes and sleep durations, and minimal disturbances from night to night."
+        }
+
+        let rowsInterpretations = Object.keys(interpretations).map(key => (
+            `<tr id ="tr-interpretation">
+                ${key.length !== 0
+                ? `<td id = "side-title-interpretation"> ${key}</td >
+                    <td id="interpretation-content">${interpretations[key]}</td>`
+                : `<td colspan="2" id ="interpretation-content-single">${interpretations[key]}</td>`}
+            </tr>`
+        ))
+
+        document.getElementById("rows-interpretations").innerHTML = rowsInterpretations.join(" ")
+
+        document.getElementById("ESS").innerHTML = `<span style = "margin-left: ${(9 / 24) * 660}px">✘</span>`
+        document.getElementById("FSS").innerHTML = `<span style = "margin-left: ${(6.78 / 7) * 660}px">✘</span>`
+        document.getElementById("ISI").innerHTML = `<span style = "margin-left: ${(18 / 28) * 660}px">✘</span>`
+    </script>
+</body>
+
+</html>

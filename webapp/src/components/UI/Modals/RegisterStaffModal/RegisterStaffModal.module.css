@@ -1,0 +1,182 @@
+.ModalVisible {
+    position: absolute;
+    z-index: 500;
+    background-color: #fff;
+    width: 600px;
+    left: 50%;
+    transform: translate(-50%);
+    top: 14%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 9px;
+    
+    /* visibility: visible;
+    transform: all 0.2s linear;
+    animation: modal;
+    animation-duration: 1s; */
+    transition: all .5s ease-in-out;
+}
+.HideModal{
+    top: -40%;
+    transition: all .5s ease-in-out;
+}
+
+.CloseCross {
+    height: 17px;
+    cursor: pointer;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.CloseCross:hover {
+    background-color: #d9e1ebb0;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+}
+
+.InnerModalContainer {
+    position: relative;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.Header {
+    display: flex;
+    border-bottom: 1px solid #F1F2F3;
+    align-items: center;
+    padding: 20px 35px;
+    padding-right: 22px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.Header h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.Inner {
+    display: flex;
+    align-items: center;
+}
+
+.Inner div {
+    margin-left: 20px;
+}
+
+.Inner h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    color: #A1A5B1;
+}
+
+.Inner button {
+    height: 36px;
+    width: 140px;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 2px solid #8bb8e8;
+    color: #8bb8e8;
+    cursor: pointer;
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.Input {
+    height: 37px !important;
+    border-radius: 8px;
+    border: 1.8px solid #c7cbd6;
+    outline: none;
+    background-color: #e6ecf207;
+    transition: all 0.1s linear;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.InputInvalid {
+    height: 37px !important;
+    border-radius: 8px;
+    outline: none;
+    background-color: #e6ecf207;
+    transition: all 0.1s linear;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    border: 1px solid rgb(197, 0, 0);
+}
+
+.InputInvalid:focus {
+    border: 1.8px solid rgb(197, 0, 0);
+    transition: all 0.1s linear;
+    background-color: #e6ecf223;
+}
+
+.Input:focus {
+    border: 1.8px solid #8bb8e8;
+    background-color: #e6ecf223;
+    transition: all 0.1s linear;
+}
+
+.Button {
+    background-color: #8bb8e8;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    padding: 7px;
+    border: 0;
+    text-align: center;
+    width: 160px;
+    border-radius: 8px;
+    margin-top: 14px;
+    outline: none;
+    height: 36px;
+    margin-left: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.Form label {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.ConfirmModalCustom {
+    z-index: 550 !important;
+}
+
+.ErrorMessage{
+	color: rgb(197, 0, 0);
+	margin: 0;
+	height: 10px;
+	font-size: 0.85em;
+	margin-left: 8px;
+	font-weight: 600;
+    margin-top: 10px;
+}
+.HideButton{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}

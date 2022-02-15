@@ -1,0 +1,42 @@
+.ButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -8px;
+}
+
+.ButtonGroup button {
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    padding: 7px;
+    text-align: center;
+    width: 168px;
+    border-radius: 8px;
+    outline: none;
+    height: 36px;
+}
+
+.PrevButton {
+    background-color: transparent;
+    margin-right: 10px;
+    padding-right: 0;
+    width: fit-content !important;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.SaveButton {
+    background-color: #8bb8e8;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.SaveButton_questionnaire {
+    background-color: #8bb8e8;
+    color: #ffffff;
+    margin-left: 20px;
+    font-weight: 600;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}

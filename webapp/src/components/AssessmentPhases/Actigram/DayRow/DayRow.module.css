@@ -1,0 +1,38 @@
+.Day {
+    margin-bottom: 20px;
+}
+
+.Day input {
+    width: 300px;
+}
+
+.TableHeadingRow {
+    width: 100%;
+}
+
+.TableHeadingRow th {
+    text-align: left;
+    padding: 20px 8px;
+    font-size: 13px;
+}
+
+
+.Row td input{
+    /* padding-bottom: 20px; */
+    height: 37px !important;
+    border-radius: 8px;
+    border: 1.8px solid #c7cbd6;
+    outline: none;
+    background-color: #e6ecf207;
+    transition: all 0.1s linear;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.Row td {
+    padding: 0 8px;
+}
+

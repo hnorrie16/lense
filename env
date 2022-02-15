@@ -1,0 +1,8 @@
+TOKEN_SECRET = $2b$10$vtMlkg.7aDxah.aIis5SE.heFvyQQ2ebjvwUqDqDawcaV9luwOyQOasd213213
+REFRESH_TOKEN_SECRET = sg661!!*He99DHuw.SD998*&^sdhwu#jj.SE.AQ.&&@sshdummxXXn.A.@dasdas
+EMAIL_PASSWORD = taa@vision!?!
+ACCESS_ID = AKIAIQWCFEFXB3FVADQA
+SECRET_KEY = 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
+UPLOAD_ACCESS_POINT = arn:aws:s3:af-south-1:831513429435:accesspoint/uploadfile
+REMOVE_ACCESS_POINT = arn:aws:s3:af-south-1:831513429435:accesspoint/removefile
+MONGODB_URI = mongodb+srv://hnorrie18:Haydenn16@lense.dr7rf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority

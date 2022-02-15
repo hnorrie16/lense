@@ -1,0 +1,154 @@
+.Container {
+    display: flex;
+    width: 100vw;
+}
+
+.LeftSection {
+    width: 40%;
+    height: 100%;
+    background: #1A1919;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.LeftSection img {
+    position: relative;
+    height: 640px;
+    padding-top: 105px;
+}
+
+.RightSection {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: #F3F4F5;
+    position: relative;
+}
+
+.Box {
+    margin-top: 195px;
+    min-width: 454px;
+    max-width: 455px;
+    width: 40%;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 40px;
+    padding-bottom: 36px;
+    box-sizing: border-box;
+    z-index: 2;
+    position: absolute;
+    box-shadow: 0 15px 25px rgba(12, 88, 228, 0.15), 0 5px 10px rgba(12, 88, 228, .05);
+}
+
+.Box h1 {
+    font-size: 38px;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+}
+
+.SignIn {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.SignIn button {
+    width: 100%;
+    height: 42px;
+    margin-top: 40px;
+    background-color: #8bb8e8;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    padding: 7px;
+    border: 0;
+    text-align: center;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+}
+
+.Circle {
+    margin-top: 110px;
+    height: 620px;
+    width: 620px;
+    border-radius: 50%;
+    background-color: #F7FAFF;
+    z-index: 1;
+    position: absolute;
+}
+
+.EmailInput, .PasswordInput {
+    height: 45px !important;
+    border-radius: 8px;
+    border: 1.8px solid #c7cbd6;
+    outline: none;
+    background-color: #e6ecf207;
+    transition: all 0.1s linear;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 50px;
+}
+
+.EmailInput {
+    background-image: url('../../Assets/Icons//mail.svg');
+}
+
+.PasswordInput {
+    background-image: url('../../Assets/Icons//lock.svg');
+}
+
+.Input:focus {
+    border: 1.8px solid #8bb8e8;
+    background-color: #e6ecf223;
+    transition: all 0.1s linear;
+}
+
+.Form label {
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 2px;
+}
+
+.RightSection p {
+    text-align: left;
+    font-size: medium;
+    color: rgb(170, 9, 9);
+  }
+
+@media screen and (max-width: 1453px) {
+    .LeftSection img {
+        height: 540px;
+        padding-top: 180px;
+    }
+}
+
+@media screen and (max-width:1190px) {
+    .LeftSection {
+        display: none;
+    }
+    .RightSection {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-height:850px) {
+    .LeftSection img {
+        padding-top: 100px;
+    }
+    .Box {
+        margin-top: 130px;
+    }
+}

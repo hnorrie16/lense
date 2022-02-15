@@ -1,0 +1,51 @@
+{
+  "name": "sleepscience_server",
+  "version": "1.0.0",
+  "description": "Node.js REST CRUD API for Sleep Science application",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "client": "cd webapp && npm start",
+    "dev": "concurrently \"npm start\" \"npm run client\"",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "rest",
+    "api"
+  ],
+  "engines": {
+    "node": "14.16.1"
+},
+  "author": "Justin Dorman & Zach Bresler",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "aws-sdk": "^2.831.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.4.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.6.0",
+    "dotenv-webpack": "^7.0.2",
+    "ejs": "^3.1.5",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "file-type": "^16.2.0",
+    "helmet": "^4.2.0",
+    "html-pdf": "^2.2.0",
+    "json-web-token": "^3.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.8",
+    "morgan": "^1.10.0",
+    "multiparty": "^4.2.2",
+    "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.6",
+    "phantomjs-prebuilt": "^2.1.16"
+  }
+}

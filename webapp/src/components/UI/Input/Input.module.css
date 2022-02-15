@@ -1,0 +1,110 @@
+.Container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+.Input {
+	height: 37px !important;
+	border-radius: 8px;
+	border: 1.8px solid #c7cbd6;
+	outline: none;
+	background-color: #e6ecf207;
+	transition: all 0.1s linear;
+	padding: 0px 20px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+}
+
+.InputInvalid {
+	height: 37px !important;
+	border-radius: 8px;
+	outline: none;
+	background-color: #e6ecf207;
+	transition: all 0.1s linear;
+	padding: 0px 20px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	border: 1px solid rgb(197, 0, 0);
+}
+
+.InputInvalid:focus {
+	border: 1.8px solid rgb(197, 0, 0);
+	transition: all 0.1s linear;
+	background-color: #e6ecf223;
+}
+
+.Input:focus {
+	border: 1.8px solid #8bb8e8;
+	background-color: #e6ecf223;
+	transition: all 0.1s linear;
+}
+
+.Container label {
+	font-size: 14px;
+}
+
+.TextArea {
+	min-height: 120px !important;
+	max-width: 100%;
+	min-width: 100%;
+	border-radius: 8px;
+	border: 1.8px solid #c7cbd6;
+	outline: none;
+	background-color: #e6ecf207;
+	transition: all 0.1s linear;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	font-family: "HKGrotesk";
+	font-weight: 400;
+}
+
+.TextArea:focus {
+	border: 1.8px solid #8bb8e8;
+	background-color: #e6ecf223;
+	transition: all 0.1s linear;
+}
+
+.TextAreaInvalid {
+	min-height: 120px !important;
+	max-width: 100%;
+	min-width: 100%;
+	border-radius: 8px;
+	outline: none;
+	background-color: #e6ecf207;
+	transition: all 0.1s linear;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	font-family: "HKGrotesk";
+	font-weight: 400;
+	border: 1px solid rgb(197, 0, 0);
+}
+
+.TextAreaInvalid:focus {
+	border: 1.8px solid rgb(197, 0, 0);
+	transition: all 0.1s linear;
+	background-color: #e6ecf223;
+}
+
+.TextTransform {
+	font-style: italic;
+}
+
+.ValidationError, .ValidationErrorTextArea {
+	color: rgb(197, 0, 0);
+	margin: 0;
+	height: 10px;
+	font-size: 0.85em;
+	margin-left: 8px;
+	font-weight: 600;
+}

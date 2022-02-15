@@ -1,0 +1,22 @@
+.Tab{
+    width: 100%;
+    height: 55px;
+    border-radius: 8px;
+    background-color: #E9EAEC;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* margin-bottom: 10px; */
+    display: flex;
+    align-items: center;
+    padding-left: 22px;
+    cursor: pointer;
+    margin-right: 28px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.Selected{
+    background-color: #CEDAE6;
+}

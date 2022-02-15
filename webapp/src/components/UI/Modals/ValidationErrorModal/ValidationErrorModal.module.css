@@ -1,0 +1,77 @@
+.ModalVisible {
+    position: absolute;
+    z-index: 500;
+    background-color: #fff;
+    min-width: 450px;
+    width: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 14%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 9px;
+    visibility: visible;
+}
+
+.CloseCross {
+    height: 17px;
+    cursor: pointer;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.CloseCross:hover {
+    background-color: #d9e1ebb0;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+}
+
+.InnerModalContainer {
+    position: relative;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.Header {
+    display: flex;
+    border-bottom: 1px solid #F1F2F3;
+    align-items: center;
+    padding: 20px 35px;
+    padding-right: 22px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.Header h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: center;
+    margin-left: -5px;
+}
+
+.ImageContainer_error {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.ImageContainer_error img {
+    height: 70px;
+}
+
+.ImageContainer_error p {
+    text-align: center;
+    width: 70%;
+}

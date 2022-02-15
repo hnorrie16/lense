@@ -1,0 +1,162 @@
+.Container {
+    position: fixed;
+    height: 100%;
+    width: 240px;
+    /* background-color: #8bb8e865; */
+    background-color: #fff;
+    overflow: hidden;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 0px 5px hsla(0, 0%, 0%, 0.02);
+}
+
+.StartAssessment {
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    width: 86%;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.StartAssessment button {
+    width: 100%;
+    background: #F3F4F5;
+    border-radius: 5px;
+    border: none;
+    height: 60px;
+    font-family: 'HKGrotesk';
+    font-size: 16px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    cursor: pointer;
+    outline: none;
+    text-align: left;
+}
+
+.StartAssessment button img {
+    padding-left: 10px;
+}
+
+.Logo {
+    width: 180px;
+}
+
+.UserContainer {
+    position: fixed;
+    height: 77px;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    width: 240px;
+    border-top: 1px solid #EFF1F3;
+    padding-left: 37px;
+    cursor: pointer;
+}
+
+.Circle {
+    height: 45px;
+    width: 45px;
+    border: 1.5px solid #000;
+    border-radius: 100%;
+    margin-right: 11px;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+}
+
+.UserRole {
+    font-size: 13px;
+}
+
+.DropDownContainer {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 5px hsla(0, 0%, 0%, .2);
+    border-radius: 2px;
+    position: fixed;
+    z-index: 2100;
+    opacity: 1;
+    transform: scale(1, 1);
+    transform-origin: left top;
+    max-height: 670px;
+    overflow-y: auto;
+    float: left;
+    text-align: left;
+    bottom: 70px;
+    left: 29px;
+    padding: 17px 0;
+    border-radius: 8px;
+    width: 170px;
+    list-style: none;
+    background-clip: padding-box;
+    padding-left: 0;
+}
+
+.DropDownButton {
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+    padding-left: 28px;
+    padding-right: 28px;
+    /* letter-spacing: 1px; */
+    color: rgb(80, 80, 80);
+    transition: all 0.1s linear;
+    font-size: 15px;
+}
+
+.DropDownButton a:link {
+    text-decoration: none !important;
+}
+
+.DropDownButton img {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.DropDownButton:hover {
+    background-color: rgba(36, 36, 36, 0.071);
+    cursor: pointer;
+    color: black;
+    transition: all 0.1s linear;
+}
+
+.LineRule {
+    border-bottom: 1px solid #dbdbde;
+    margin: 13px 28px;
+    width: auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .Container{
+        width: 200px;
+    }
+    .Circle {
+        height: 35px;
+        width: 35px;
+        margin-left: 10px;
+    }
+    
+    .UserRole {
+        font-size: 12px;
+    }
+
+    .UserFullName{
+        font-size: 15px;
+    }
+    
+}

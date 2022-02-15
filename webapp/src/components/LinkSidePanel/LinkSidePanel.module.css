@@ -1,0 +1,163 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 500px;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: #ffffff;
+    position: fixed;
+    right: -500px;
+    transition: all 0.3s linear;
+    top: 0;
+    box-shadow: -5px 0px 5px hsla(0, 0%, 0%, 0.02);
+    box-sizing: border-box;
+    padding: 30px 40px;
+    z-index: 11;
+}
+
+.OpenContainer {
+    right: 0;
+}
+
+.Top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.StaffImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    background-color: #5A5A5A;
+    margin-bottom: 5px;
+}
+
+.Top span {
+    margin-top: 6px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.Top button {
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 16x;
+    border: none;
+    background-color: #8bb8e8;
+    cursor: pointer;
+    outline: none;
+    margin-top: 14px;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+    font-weight: 600;
+    color: #fff;
+}
+
+.Clients {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    align-items: center;
+}
+
+.Client {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: #EBECEE;
+    box-sizing: border-box;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.CloseContainer {
+    display: flex;
+    width: 100%;
+}
+
+.CloseCross {
+    height: 17px;
+    cursor: pointer;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.CloseCross:hover {
+    background-color: #d9e1ebb0;
+    padding: 9px;
+    transition: all 0.2s linear;
+    border-radius: 6px;
+}
+
+/* clients table */
+
+.Table {
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 0 15px;
+    margin-top: -15px;
+}
+
+.Data, .DataHeadings, .DeleteTD {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddddddbb;
+    border-top: 1px solid #ddddddbb;
+    height: 32px;
+}
+
+.Data {
+    border-right: 1px solid #ddddddbb;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 55%;
+}
+
+.DeleteTD {
+    border-left: 1px solid #ddddddbb;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.DeleteTD svg {
+    cursor: pointer;
+}
+
+.Table th {
+    background-color: #F3F5F7;
+    text-align: left;
+    padding: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.Table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.Table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.Row:nth-child(even) {
+    background-color: #F3F5F7;
+}

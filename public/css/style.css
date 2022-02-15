@@ -1,0 +1,105 @@
+.container {
+    margin: auto;
+    padding: 80px;
+    line-height: 24px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex span {
+    width: 150px;
+}
+
+.bar {
+    height: 35px;
+    width: 35px;
+}
+
+.graph {
+    display: flex;
+    flex-direction: column;
+}
+
+.client-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-value {
+    display: flex;
+}
+
+#label {
+    display: flex;
+    font-weight: 600;
+    width: 50px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid #141414;
+}
+
+th, td {
+    text-align: center;
+    width: fit-content;
+    padding: 9px 8px;
+}
+
+td {
+    font-size: 13px;
+}
+
+th {
+    font-size: 14px;
+}
+
+#side-title {
+    font-weight: 600;
+}
+
+#side-title-interpretation {
+    font-weight: 600;
+    text-align: left;
+    padding: 0;
+    width: 100px !important;
+    border-right: 1px solid #141414;
+    padding-left: 10px
+}
+
+#interpretation-content {
+    text-align: left;
+}
+
+#interpretation-content-single {
+    text-align: left;
+}
+
+#tr-interpretation {
+    border: 1px solid #141414;
+}
+
+#daily thead:first-child, #summary thead:first-child {
+    width: 100px;
+}
+
+.interpretaion-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.interpretaion-input-container p {
+    padding: 0;
+    margin: 0;
+}
+
+.interpretaion-input-container p:first-child {
+    font-weight: 600;
+}

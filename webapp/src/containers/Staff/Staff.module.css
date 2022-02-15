@@ -1,0 +1,62 @@
+.Container {
+    height: 100%;
+    padding: 0 50px;
+    margin-top: 40px;
+}
+
+@-moz-document url-prefix() {
+    .Container {
+        margin-left: 240px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    @-moz-document url-prefix() {
+        .Container {
+            margin-left: 200px;
+        }
+    }
+}
+
+.SummaryHeader{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+ }
+ 
+ .BoxOne{
+     width: 16%;
+     height: 150px;
+     border-radius: 12px;
+     background: #ffffff;
+     box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.06);
+ }
+ 
+ .BoxTwo{
+     width: 16%;
+     height: 150px;
+     border-radius: 12px;
+     background: #ffffff;
+     box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.06);
+ }
+ 
+ .BoxThree{
+     width: 16%;
+     height: 150px;
+     border-radius: 12px;
+     background: #ffffff;
+     box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.06);
+ }
+ 
+ .BoxFour{
+     width: 44%;
+     height: 150px;
+     border-radius: 12px;
+     background: #ffffff;
+     box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.06);
+ }
+
+ .ButtonGroup{
+     display: flex;
+     justify-content: flex-end;
+ }

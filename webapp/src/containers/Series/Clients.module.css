@@ -1,0 +1,141 @@
+.Container {
+    height: 100%;
+    padding: 0 50px;
+    margin-top: 40px;
+}
+
+@-moz-document url-prefix() {
+    .Container {
+        margin-left: 240px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    @-moz-document url-prefix() {
+        .Container {
+            margin-left: 200px;
+        }
+    }
+}
+
+.SummaryHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.BoxContainer {
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+    box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.06);
+}
+
+.BoxContainer h2 {
+    color: #3d3c3c98;
+    margin: 0;
+    padding: 0;
+}
+
+.BoxContainer h1 {
+    color: #18181898;
+    margin: 0;
+    padding: 0;
+}
+
+.BoxOne {
+    width: 33.3%;
+    height: 150px;
+    background: transparent;
+    border-right: 1.7px solid #cccccf7c;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.BoxTwo {
+    width: 33.3%;
+    height: 150px;
+    background: transparent;
+    border-right: 1.7px solid #cccccf7c;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.BoxThree {
+    width: 33.3%;
+    height: 150px;
+    background: transparent;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+    .BoxContainer h2 {
+        font-size: 22px;
+    }
+    .BoxContainer h1 {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .BoxContainer {
+        height: 130px;
+    }
+    .BoxContainer h2 {
+        font-size: 20px;
+    }
+    .BoxContainer h1 {
+        font-size: 26px;
+    }
+    .BoxOne {
+        height: 130px;
+    }
+    .BoxTwo {
+        height: 130px;
+    }
+    .BoxThree {
+        height: 130px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .BoxContainer h2 {
+        font-size: 16px;
+    }
+    .BoxContainer h1 {
+        font-size: 20px;
+    }
+    .BoxContainer {
+        height: 110px;
+    }
+    .BoxOne {
+        height: 110px;
+        padding-left: 20px;
+    }
+    .BoxTwo {
+        height: 110px;
+        padding-left: 20px;
+    }
+    .BoxThree {
+        padding-left: 20px;
+        height: 110px;
+    }
+}
