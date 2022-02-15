@@ -1,2 +1,2 @@
-export const apiDev = "http://localhost:9000"
+export const apiDev = "http://localhost:8000"
 export const apiProd = "awsURL"
