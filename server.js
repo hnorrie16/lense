@@ -30,12 +30,7 @@ console.log('Connected to build - 1')
 const PORT = process.env.PORT || 8000;
 
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Content-Security-Policy', "default-src 'self'; scripr-src 'unsafe-inline';");
-  res.end('Hello World');
-  });
+
 
 console.log('Connected to build - 2')
 
@@ -77,6 +72,7 @@ app.use(express.static(path.join(__dirname, 'webapp', 'build')));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.setHeader('Content-Security-Policy', "default-src *; connect-src * scripr-src 'unsafe-inline';");
   res.header(
   "Access-Control-Allow-Headers",
   "Origin, X-Requested-With, Content-Type, Accept"
