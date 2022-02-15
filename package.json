@@ -8,7 +8,7 @@
     "webapp": "cd webapp && npm start",
     "dev": "concurrently \"npm start\" \"npm run webapp\"",
     "start": "node server.js",
-    "heroku-postbuild": "cd webapp && npm install && npm install && npm run build"
+    "heroku-postbuild": "cd webapp && npm install --only=dev && npm install && npm run build"
   },
   "keywords": [
     "nodejs",
