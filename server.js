@@ -68,9 +68,20 @@ AWS.config.update({
 
 app.use(express.static(path.join(__dirname, 'webapp', 'build')));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", “*”);
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header(
+  "Access-Control-Allow-Headers",
+  "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+  });
+  app.options("*", cors());
 
 app.get('*', (req, res) => {
   console.log('Connected to server - 3')
+  
   res.send(path.join(__dirname, 'webapp', 'build', 'index.html'));
 });
 
