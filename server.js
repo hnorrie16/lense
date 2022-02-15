@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 
 //Sets the port - and the application then listens on that port
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 app.listen(PORT, async () => console.log(`Listening on port ${PORT}`))
 
