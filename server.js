@@ -13,8 +13,8 @@ const cors = require('cors');
 const AWS = require('aws-sdk');
 const path = require('path');
 const dotenv = require('dotenv');
-dotenv.config({ path: './.env' });
-
+dotenv.config({ path: '.env' });
+const mongoose = require("mongoose");
 
 
 console.log('Route')
@@ -29,9 +29,15 @@ app.use(cors())
 
 console.log('Connected to build - 1')
 const PORT = process.env.PORT || 9000;
+
+
 app.use(express.static(path.join(__dirname, 'webapp', 'build')));
+
+
 console.log('Connected to build - 2')
-app.get('/', (req, res) => {
+
+
+app.get('*', (req, res) => {
   console.log('Connected to server - 3')
   res.send(path.join(__dirname, 'webapp', 'build', 'index.html'));
 });
@@ -48,8 +54,9 @@ require("./app/routes/client.route")(app);
 require("./app/routes/user.route")(app);
 require("./app/routes/assessment.route")(app);
 
-const mongoose = require("mongoose");
 const db = require("./app/models");
+console.log(process.env.MONGODB_URI);
+
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -62,6 +69,7 @@ db.mongoose
     console.log("Cannot connect to the database!", err);
     process.exit();
   });
+
 
 
 AWS.config.update({
