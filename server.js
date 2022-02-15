@@ -21,40 +21,28 @@ console.log('Route')
 //Initialise middleware
 app.use(morgan('dev')) //logger
 app.use(helmet())
-
 app.use(express.json({ limit: '20mb', extended: true }));
 app.use(express.urlencoded({ limit: '20mb', extended: true, parameterLimit: 10000 }));
-
 app.use(cors())
 
 console.log('Connected to build - 1')
 const PORT = process.env.PORT || 9000;
 
 
-app.use(express.static(path.join(__dirname, 'webapp', 'build')));
 
 
 console.log('Connected to build - 2')
 
-
-app.get('*', (req, res) => {
-  console.log('Connected to server - 3')
-  res.send(path.join(__dirname, 'webapp', 'build', 'index.html'));
-});
-
-
-
-//Sets the port - and the application then listens on that port
-
-// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
-
-app.listen(PORT, async () => console.log(`Listening on port ${PORT}`))
 
 require("./app/routes/client.route")(app);
 require("./app/routes/user.route")(app);
 require("./app/routes/assessment.route")(app);
 
 const db = require("./app/models");
+require("./app/models/user.model");
+require("./app/models/client.model");
+
+
 console.log(process.env.MONGODB_URI);
 
 db.mongoose
@@ -77,6 +65,17 @@ AWS.config.update({
   secretAccessKey: process.env.SECRET_KEY
 });
 
+
+app.use(express.static(path.join(__dirname, 'webapp', 'build')));
+
+
+app.get('*', (req, res) => {
+  console.log('Connected to server - 3')
+  res.send(path.join(__dirname, 'webapp', 'build', 'index.html'));
+});
+
+
+app.listen(PORT, async () => console.log(`Listening on port ${PORT}`))
 
 
 
