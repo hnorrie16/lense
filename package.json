@@ -6,9 +6,13 @@
   "scripts": {
     "test": "jest",
     "webapp": "cd webapp && npm start",
+
+    "build": "cd webapp && npm run build",
+    "install-client": "cd webapp && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+
     "dev": "concurrently \"npm start\" \"npm run webapp\"",
     "start": "node server.js",
-    "heroku-postbuild": "cd webapp && npm install --only=dev && npm install && npm run build"
   },
   "keywords": [
     "nodejs",
