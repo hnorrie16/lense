@@ -8,7 +8,7 @@
     "webapp": "cd webapp && npm start",
 
     "build": "cd webapp && npm run build",
-    "install-client": "cd webapp && npm install",
+    "install-client": "cd /webapp && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
 
     "dev": "concurrently \"npm start\" \"npm run webapp\"",
