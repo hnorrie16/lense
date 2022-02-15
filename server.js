@@ -26,7 +26,7 @@ app.use(express.urlencoded({ limit: '20mb', extended: true, parameterLimit: 1000
 app.use(cors())
 
 console.log('Connected to build - 1')
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8000;
 
 
 

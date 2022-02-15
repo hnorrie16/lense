@@ -24,7 +24,7 @@
   "engines": {
     "node": "14.16.1"
 },
-  "author": "Justin Dorman & Zach Bresler",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "async": "^3.2.0",
