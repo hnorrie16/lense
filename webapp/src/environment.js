@@ -1,2 +1,2 @@
-export const apiDev = "https://localhost:8000"
+export const apiDev = ""
 export const apiProd = "awsURL"

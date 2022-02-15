@@ -84,7 +84,7 @@ app.use(function(req, res, next) {
 app.get('*', (req, res) => {
   console.log('Connected to server - 3')
   
-  res.send(path.join(__dirname, 'webapp', 'build', 'index.html'));
+  res.send(path.join(__dirname, 'webapp', 'build'));
 });
 
 
