@@ -12,7 +12,7 @@
     "heroku-postbuild": "npm run install-client && npm run build",
 
     "dev": "concurrently \"npm start\" \"npm run webapp\"",
-    "start": "node server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "nodejs",
