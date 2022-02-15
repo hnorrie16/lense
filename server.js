@@ -15,6 +15,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config({ path: '.env' });
 const mongoose = require("mongoose");
+const http = require('http');
 
 
 console.log('Route')
@@ -29,7 +30,12 @@ console.log('Connected to build - 1')
 const PORT = process.env.PORT || 8000;
 
 
-
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Security-Policy', "default-src 'self'; scripr-src 'unsafe-inline';");
+  res.end('Hello World');
+  });
 
 console.log('Connected to build - 2')
 
