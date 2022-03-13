@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Modal, Form, Dropdown, DropdownButton, Spinner} from "react-bootstrap";
+import { Modal, Form, Dropdown, DropdownButton, Spinner, Nav} from "react-bootstrap";
 import classes from './SideNavBar.module.css'
 import looks from '../NavItem/NavItem.module.css'
 import NavItem from '../NavItem/NavItem'
@@ -15,6 +15,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classess from '../NavItem/NavItem.module.css'
 import * as actions from '../../../store/actions/clients';
+import navItem from '../NavItem/NavItem';
 
 
 
@@ -81,17 +82,54 @@ const SideNavBar = (props) => {
             <div className={classes.Container}>
                 <img src={Logo} className={classes.Logo} alt="logo" style = {{padding: 5}}/>
 
-                {}
+                
                 
                 {/* <NavItem link={"/clients"}>Glasses</NavItem> */}
                 {props.userRole == 'superuser'? <NavItem link={"/mastertable"}supplierchild={props.userDetails.supplierchild} >Master</NavItem>: null }
-                {/* {props.userRole == 'superuser'? <NavItem link={"/seriesone"} company={props.userDetails.company} >Series 1000</NavItem>: null }
+                {
+                /* {props.userRole == 'superuser'? <NavItem link={"/seriesone"} company={props.userDetails.company} >Series 1000</NavItem>: null }
                 {props.userRole == 'superuser'? <NavItem link={"/seriestwo"} company={props.userDetails.company}  >Series 2000</NavItem>: null }
                 {props.userRole == 'superuser'? <NavItem link={"/seriesfour"}company={props.userDetails.company} >Series 4000</NavItem>: null }
                 {props.userRole == 'superuser'? <NavItem link={"/seriesfive"}company={props.userDetails.company} >Series 5000</NavItem>: null }
                 {props.userRole == 'superuser'? <NavItem link={"/seriessix"}company={props.userDetails.company} >Series 6000</NavItem>: null } */}
-                {props.userRole == 'superuser' || props.userRole == 'supplier' || props.userRole == 'admin' ? <NavItem link={"/seriesseven"}supplierchild={props.userDetails.supplierchild} >Series 7000</NavItem>: null }
-                {props.userRole == 'superuser' || props.userRole == 'supplier' || props.userRole == 'admin' ? <NavItem link={"/serieseight"}supplierchild={props.userDetails.supplierchild} >Series 8000</NavItem>: null }
+
+
+                <Nav >
+
+                           <div>                
+       {props.userRole == 'superuser' || props.userRole == 'supplier' || props.userRole == 'admin' ?  
+                <DropdownButton id="dropdown-basic-button" title="   Glass   ">
+                <Dropdown.Item link  href="/seriesseven">Base Lenses Glass</Dropdown.Item>
+                <Dropdown.Item href="">STOCK Single Vision</Dropdown.Item>
+                <Dropdown.Item href="">SURFACED Single Vision</Dropdown.Item>
+                <Dropdown.Item href="">Bi/Trifocalsn</Dropdown.Item>
+                <Dropdown.Item href="">Varifocal Distance/Near</Dropdown.Item>
+                <Dropdown.Item href="">Add-Ons - Coatingsn</Dropdown.Item>
+                <Dropdown.Item href="">Add-Ons - Tints</Dropdown.Item>
+                <Dropdown.Item href="">Add-Ons - Other</Dropdown.Item>
+          </DropdownButton>: 
+                null }
+
+{props.userRole == 'superuser' || props.userRole == 'supplier' || props.userRole == 'admin' ?  
+                <DropdownButton  id="dropdown-basic-button" title="   Plastic   ">
+                <Dropdown.Item link={"/stafftable"}  href="">Base Lenses Plastic</Dropdown.Item>
+                <Dropdown.Item href="">STOCK Single Vision </Dropdown.Item>
+                <Dropdown.Item href="">SURFACED Single Vision</Dropdown.Item>
+                <Dropdown.Item href="">Accomodative Support Lenses</Dropdown.Item>
+                <Dropdown.Item href="">Bi/Trifocals </Dropdown.Item>
+                <Dropdown.Item href=""> Varifocal Intermediate/Near</Dropdown.Item>
+                <Dropdown.Item href="">Varifocal Distance/Near  </Dropdown.Item>
+                <Dropdown.Item href="">Add-Ons - Coatings</Dropdown.Item>
+                <Dropdown.Item href="">Add-Ons - Tints</Dropdown.Item>
+                <Dropdown.Item href="">Add-Ons - Other</Dropdown.Item>
+          </DropdownButton>: 
+                null }
+               </div>       
+
+                </Nav>
+                
+                
+                {/* {props.userRole == 'superuser' || props.userRole == 'supplier' || props.userRole == 'admin' ? <NavItem link={"/serieseight"}supplierchild={props.userDetails.supplierchild} >Series 8000</NavItem>: null } */}
                 {props.userRole == 'superuser' ? <NavItem link={"/stafftable"}company={props.userDetails.supplierchild} >Staff</NavItem>: null }
                 {props.userRole == 'superuser' || props.userRole == 'admin'? <NavItem link={"/exporttable"}supplierchild={props.userDetails.supplierchild} >Export table</NavItem>: null }
                 
