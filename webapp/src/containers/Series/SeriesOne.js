@@ -5,7 +5,6 @@ import * as actionsAssessments from '../../store/actions/assessments';
 import { connect } from 'react-redux';
 import { forwardRef } from 'react';
 import MaterialTable from "material-table";
-import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
@@ -23,37 +22,41 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import { useLocation } from 'react-router-dom';
 
 
-const tableIcons = {
-    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
-    Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-    Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-    Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
-    DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-    Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-    Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-    Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
-    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
-    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
-    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
-    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-    SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
-    ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
-  };
+// const tableIcons = {
+//     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+//     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+//     Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+//     Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
+//     DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+//     Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
+//     Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
+//     Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
+//     FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+//     LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+//     NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+//     PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+//     ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+//     Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+//     SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
+//     ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
+//     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+//   };
 
 
 
 const SeriesOne = (props) => {
     const [users, setUsers] = useState([])
-    const location = useLocation();
+    let location = useLocation();
 
  
     
     useEffect(() => {
+
+
         
-    props.OnFetchClients(props.token, "1000", 0, location.state.company, 0)
+
+
+    props.OnFetchClients(props.token, "6000", 0, location.state.company, 0)
     
     }, [])
 
@@ -70,7 +73,6 @@ const SeriesOne = (props) => {
 
     return (
         <>
-
             <div>
                 <ul>
                     {users.map(user => (<li key={user.id}>{users.name}</li>))}
@@ -140,7 +142,8 @@ const SeriesOne = (props) => {
                       
                     }),
                   }}
-                  data = {data} icons={tableIcons}/>        
+                  data = {data} />        
+                  {/* icons={tableIcons} */}
             </div>
         </>
     )

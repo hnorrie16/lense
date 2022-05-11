@@ -81,12 +81,12 @@ export const fetchClientsFail = () => {
 };
 
 //Fetch clients
-export const fetchClients = (auth, filter, userId, limit, pageNumber) => {
+export const fetchClients = (auth, filter, userId, limit, pageNumber, lenseId) => {
     return dispatch => {
         dispatch(fetchClientsStart());
         axios.get(`${apiURL}/api/clients/fetch/${userId}`, {
             params: {
-                auth, filter, limit,
+                auth, filter, limit, lenseId,
                 page: pageNumber
             }
         })

@@ -15,7 +15,7 @@ import SummaryAssessmentModal from '../../components/UI/Modals/SummaryAssessment
 import Spinner from '../../components/UI/Spinner/Spinner'
 import FeedbackGlobal from '../../components/UI/FeedbackGlobal/FeedbackGlobal'
 import GeneralModal from '../../components/UI/Modals/GeneralModal/GeneralModal'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Assessment = (props) => {
     //if status > number then tab completed
@@ -202,7 +202,7 @@ const Assessment = (props) => {
             break;
     }
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const onCloseHandler = () => {
         props.OnSetConfirmModalAssessment(false)

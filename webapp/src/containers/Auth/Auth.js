@@ -4,7 +4,7 @@ import Logo from '../../Assets/Images/Sleep Science Logo File.png'
 import { useFormik } from 'formik';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/auth';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const Auth = (props) => {
     const formik = useFormik({
@@ -20,7 +20,7 @@ const Auth = (props) => {
     let redirect = null
 
     if (props.isAuthenticated) {
-        redirect = <Redirect to="/clients" />
+        redirect = <Navigate to="/clients" />
     }
 
     const errorMsg = props.loading ? null : props.error ? props.error : null

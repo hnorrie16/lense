@@ -6,13 +6,11 @@
   "scripts": {
     "test": "jest",
     "webapp": "cd webapp && npm start",
-
     "build": "cd webapp && npm run build",
     "install-client": "cd webapp && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-
     "dev": "concurrently \"npm start\" \"npm run webapp\"",
-    "start": "node server.js"
+    "start": "GENERATE_SOURCEMAP=false node server.js"
   },
   "keywords": [
     "nodejs",
@@ -23,10 +21,13 @@
   ],
   "engines": {
     "node": "14.16.1"
-},
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mui/lab": "^5.0.0-alpha.79",
+    "@mui/material": "^5.6.3",
+    "@mui/styles": "^5.6.2",
     "async": "^3.2.0",
     "aws-sdk": "^2.831.0",
     "bcrypt": "^5.0.0",
@@ -45,6 +46,7 @@
     "html-pdf": "^2.2.0",
     "json-web-token": "^3.2.0",
     "jsonwebtoken": "^8.5.1",
+    "material-table": "^1.36.0",
     "mongoose": "^5.11.8",
     "morgan": "^1.10.0",
     "multiparty": "^4.2.2",

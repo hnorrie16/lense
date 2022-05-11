@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Routes, Navigate, Switch, Router, BrowserRouter} from "react-router-dom";
 import Layout from './containers/Layout/Layout'
 import Clients from './containers/Clients/Clients'
 import SeriesOne from './containers/Series/SeriesOne'
@@ -22,6 +22,8 @@ import StaffPasswordChange from './containers/StaffPasswordChange/StaffPasswordC
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as actions from './store/actions/auth';
 import { connect } from 'react-redux'
+import AboutYou from './components/QuestionnaireForms/AboutYou/AboutYou';
+import SeriesContactLense from './containers/Series/SeriesContactLense';
 
 const App = (props) => {
 
@@ -31,27 +33,18 @@ const App = (props) => {
   }, [props.onTryAutoSignup]);
 
   return (
-    <Layout>
-      <Switch>
-        <Route path="/signin" exact={true} component={Auth} />
-        <Redirect exact from="/" to="/signin" />
-        <Route path="/registerstaff/changepassword" component={StaffPasswordChange} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/clients' component={Clients} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/seriesone' component={SeriesOne} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/seriestwo' component={SeriesTwo} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/seriesfour' component={SeriesFour} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/seriesfive' component={SeriesFive} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/seriessix' component={SeriesSix} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/seriesseven' component={SeriesSeven} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/serieseight' component={SeriesEight} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/exporttable' component={Export} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/mastertable' component={MasterTable} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/assessmentpanel/:id' component={Assessment} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/clientprofile/:id' component={ClientProfile} />
-        <ProtectedRoute exact={true} isAuthenticated={props.isAuthenticated} path='/stafftable' component={StaffTable} />
-        <Route path="/logout" component={Logout} />
-      </Switch>
-    </Layout>
+<Layout>
+<Routes>
+      <Route path="/signin" exact={true} element={<Auth />}></Route>
+      <Route path="/" element={<Navigate replace to="/signin" />} />
+      <Route name = "master" path="/master" element={<MasterTable />} />
+      <Route name = "seriessix" path="/seriessix" element={<SeriesSix/>} />
+      <Route name = "seriesseven" path="/seriesseven" element={<SeriesSeven/>} />
+      <Route name = "seriescontactlense" path="/seriescontactlense" element={<SeriesContactLense/>} />
+      <Route path="/staff" element={<StaffTable/>}/>
+      <Route path="/logout" element={<Logout/>} />
+</Routes>
+</Layout>
   );
 }
 

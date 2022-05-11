@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Modal, Form, Dropdown, DropdownButton, Spinner, Nav} from "react-bootstrap";
+import { Modal, Form, Dropdown, DropdownButton, Spinner, Nav, ButtonGroup} from "react-bootstrap";
 import classes from './SideNavBar.module.css'
 import looks from '../NavItem/NavItem.module.css'
 import NavItem from '../NavItem/NavItem'
@@ -8,7 +8,7 @@ import * as actionsAssessments from '../../../store/actions/assessments'
 import * as actionsUsers from '../../../store/actions/users'
 import { connect } from 'react-redux';
 import OutsideAlerter from '../../OutsideAlerter/OutsideAlerter'
-import { useHistory } from 'react-router-dom'
+import { NavLink, useNavigate, Link, Navigate } from 'react-router-dom'
 import Button from '../Button/Button'
 import { FormGroup, Icon, TextareaAutosize } from '@material-ui/core'
 import AddCircleIcon from '@material-ui/icons/AddCircle';
@@ -23,13 +23,24 @@ const SideNavBar = (props) => {
     
 
     const [showDropDown, setShowDropDown] = useState(false);
-    const history = useHistory();
+    const history = useNavigate();
     const role = (props.userRole)
 
     const [show, setShow] = useState(false);
+    let navigate = useNavigate();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    var dict = {};
+    dict["STOCK Single Vision - Add to 71BS001"] = 1;
+    dict["SURFACED Single Vision - Add to 72BS001"] = 2;
+    dict["Bi/Trifocals (Add to 74BS001)"] = 4;
+    dict["Varifocal Distance/Near (Add to 76BS001)"] = 6;
+    dict["Add-Ons - Coatings"] = 7;
+    dict["Add-Ons - Tints"] = 8;
+    dict["Add-Ons - Other"] = 9;
+
 
     const data = props.clients !== undefined
     ? props.clients
@@ -49,7 +60,9 @@ const SideNavBar = (props) => {
 
     //logs the user out of the system
     const logout = () => {
-        history.push("/logout");
+  
+        navigate("/logout", { replace: true })
+        navigate(0)
     }
 
     const dropdown = (
@@ -83,61 +96,52 @@ const SideNavBar = (props) => {
                 <img src={Logo} className={classes.Logo} alt="logo" style = {{padding: 5}}/>
 
                 
-                
-                {/* <NavItem link={"/clients"}>Glasses</NavItem> */}
-                {props.userRole == 'superuser'? <NavItem link={"/mastertable"}supplierchild={props.userDetails.supplierchild} >Master</NavItem>: null }
-                {
-                /* {props.userRole == 'superuser'? <NavItem link={"/seriesone"} company={props.userDetails.company} >Series 1000</NavItem>: null }
-                {props.userRole == 'superuser'? <NavItem link={"/seriestwo"} company={props.userDetails.company}  >Series 2000</NavItem>: null }
-                {props.userRole == 'superuser'? <NavItem link={"/seriesfour"}company={props.userDetails.company} >Series 4000</NavItem>: null }
-                {props.userRole == 'superuser'? <NavItem link={"/seriesfive"}company={props.userDetails.company} >Series 5000</NavItem>: null }
-                {props.userRole == 'superuser'? <NavItem link={"/seriessix"}company={props.userDetails.company} >Series 6000</NavItem>: null } */}
+
+<hr></hr>
+                {props.userRole == 'superuser' || props.userRole == 'supplier'?                 
+                < DropdownButton className={classess.NavItem} title="Glass Lenses">
+                <Dropdown.Item ><Link onclick="window.location.reload(true)" to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All lenses</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 1}}>STOCK Single Vision</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 2}}>SURFACED Single Vision</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 4}}>Bi/Trifocals</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 6}}>Varifocal Distance/Near</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 7}}>Add-Ons - Coatings</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 8}}>Add-Ons - Tints</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 9}}>Add-Ons - Other</Link></Dropdown.Item>
+</DropdownButton>: null }
+
+{props.userRole == 'superuser' || props.userRole == 'supplier'? <Dropdown className={classess.NavItem}>
+  <Dropdown.Toggle>
+    Plastic lenses
+  </Dropdown.Toggle>
+  <Dropdown.Menu >
+    <Dropdown.Item ><Link onclick="window.location.reload(true)" to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All lenses</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 1}}>STOCK Single Vision - Add to 81BS001</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 2}}>SURFACED Single Vision - Add to 82BS001</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 3}}>Accomodative Support Lenses (Add To 83BS001)</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 4}}>Bi/Trifocals (Add To 84BS001)</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 5}}>Varifocal Intermediate/Near (Add To 85BS001)</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 6}}>Varifocal Distance/Near (Add To 86BS001)</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 7}}>Add-Ons - Coatings</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 8}}>Add-Ons - Tints</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 9}}>Add-Ons - Other</Link></Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>: null }
+
+{props.userRole == 'superuser' || props.userRole == 'supplier'? <Dropdown className={classess.NavItem}>
+  <Dropdown.Toggle>
+    Contact Lenses
+  </Dropdown.Toggle>
+  <Dropdown.Menu >
+    <Dropdown.Item ><Link to="seriescontactlense" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All Lenses</Link></Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>: null }
 
 
-                <Nav >
 
-                           <div>                
-       {props.userRole == 'superuser' || props.userRole == 'supplier' || props.userRole == 'admin' ?  
-                <DropdownButton id="dropdown-basic-button" title="   Glass   ">
-                <Dropdown.Item link  href="/seriesseven">Base Lenses Glass</Dropdown.Item>
-                <Dropdown.Item href="">STOCK Single Vision</Dropdown.Item>
-                <Dropdown.Item href="">SURFACED Single Vision</Dropdown.Item>
-                <Dropdown.Item href="">Bi/Trifocalsn</Dropdown.Item>
-                <Dropdown.Item href="">Varifocal Distance/Near</Dropdown.Item>
-                <Dropdown.Item href="">Add-Ons - Coatingsn</Dropdown.Item>
-                <Dropdown.Item href="">Add-Ons - Tints</Dropdown.Item>
-                <Dropdown.Item href="">Add-Ons - Other</Dropdown.Item>
-          </DropdownButton>: 
-                null }
+                {props.userRole == 'superuser'? <NavItem link={"/master"} supplierchild={props.userDetails.company} >Master</NavItem>: null }
+                {props.userRole == 'superuser' ? <NavItem link={"/staff"}supplierchild={props.userDetails.supplierchild} >Staff</NavItem>: null }
 
-{props.userRole == 'superuser' || props.userRole == 'supplier' || props.userRole == 'admin' ?  
-                <DropdownButton  id="dropdown-basic-button" title="   Plastic   ">
-                <Dropdown.Item link={"/stafftable"}  href="">Base Lenses Plastic</Dropdown.Item>
-                <Dropdown.Item href="">STOCK Single Vision </Dropdown.Item>
-                <Dropdown.Item href="">SURFACED Single Vision</Dropdown.Item>
-                <Dropdown.Item href="">Accomodative Support Lenses</Dropdown.Item>
-                <Dropdown.Item href="">Bi/Trifocals </Dropdown.Item>
-                <Dropdown.Item href=""> Varifocal Intermediate/Near</Dropdown.Item>
-                <Dropdown.Item href="">Varifocal Distance/Near  </Dropdown.Item>
-                <Dropdown.Item href="">Add-Ons - Coatings</Dropdown.Item>
-                <Dropdown.Item href="">Add-Ons - Tints</Dropdown.Item>
-                <Dropdown.Item href="">Add-Ons - Other</Dropdown.Item>
-          </DropdownButton>: 
-                null }
-               </div>       
-
-                </Nav>
-                
-                
-                {/* {props.userRole == 'superuser' || props.userRole == 'supplier' || props.userRole == 'admin' ? <NavItem link={"/serieseight"}supplierchild={props.userDetails.supplierchild} >Series 8000</NavItem>: null } */}
-                {props.userRole == 'superuser' ? <NavItem link={"/stafftable"}company={props.userDetails.supplierchild} >Staff</NavItem>: null }
-                {props.userRole == 'superuser' || props.userRole == 'admin'? <NavItem link={"/exporttable"}supplierchild={props.userDetails.supplierchild} >Export table</NavItem>: null }
-                
-                {/* {props.userRole == 'superuser'? 
-                <Button clicked = {handleShow} className={classess.NavItem}>
-                Add Supplier
-            </Button>: null} */}
-                
 
                 <div className={classes.UserContainer} onClick={() => setShowDropDown(true)}>
                     <div className={classes.Circle}>

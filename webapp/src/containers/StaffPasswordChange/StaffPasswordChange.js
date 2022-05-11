@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import classes from './StaffPasswordChange.module.css';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/auth';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 // import PasswordStengthMeter from '../../components/UI/PasswordStrengthMeter/PasswordStrengthMeter'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -60,7 +60,7 @@ const StaffPasswordChange = (props) => {
             )}
         </Formik>
     )
-    const signInRedirect = props.passwordChangeSuccess && <Redirect to="/signin" />
+    const signInRedirect = props.passwordChangeSuccess && <Navigate to="/signin" />
 
     const content =
         props.loading

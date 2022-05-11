@@ -30,7 +30,7 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import { useLocation } from 'react-router-dom';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import { Modal, Form, Col, Row} from "react-bootstrap";
+import { Modal, Form, Col, Row, Dropdown} from "react-bootstrap";
 import { FormGroup, Icon, TextareaAutosize } from '@material-ui/core'
 import Select from 'react-select';
 import Moment from 'moment';
@@ -61,7 +61,7 @@ const tableIcons = {
 
 
 
-const SeriesSix = (props) => {
+const SeriesContactLense = (props) => {
 
     const [users, setUsers] = useState([])
     const location = useLocation();
@@ -98,7 +98,7 @@ const SeriesSix = (props) => {
     useEffect(() => {
 
        
-        props.OnFetchClients(props.token, "8000", 0, location.state.supplierchild, 0, location.state.lenseIdFilter)
+        props.OnFetchClients(props.token, "NOTHING", 0, location.state.supplierchild, 0, location.state.lenseIdFilter)
 
     }, [])
 
@@ -126,13 +126,11 @@ const SeriesSix = (props) => {
            
             <div className={classes.Container}>     
                 <MaterialTable  
-                title = "Series 8000"   
-                
-                
+                title = "Contact Lenses"   
                 
                 columns={[
                     { title: 'Code', field: 'Code', editable: 'never'}, //, field: 'sort'
-                    { title: 'Change', field: 'Change', editable: 'never', hidden: true},
+                    { title: 'Change', field: 'Change', editable: 'never' , hidden: true},
                     { title: 'Description', field: 'Description'},
                     { title: 'Stock', field: 'Stock', editable: 'never'},
                     { title: 'Index', field: 'Index'},
@@ -145,12 +143,10 @@ const SeriesSix = (props) => {
                 lookup: {
 
                     //'1': 'Base Lenses Glad (n=1.523)',
-                    '1': 'STOCK Single Vision - Add to 81BS001',
-                    '2': 'SURFACED Single Vision - Add to 82BS001',
-                    '3': 'Accomodative Support Lenses (Add To 83BS001)',
-                    '4': 'Bi/Trifocals (Add To 84BS001',
-                    '5': 'Varifocal Intermediate/Near (Add To 85BS001)',
-                    '6': 'Varifocal Distance/Near (Add To 86BS001)',
+                    '1': 'STOCK Single Vision - Add to 71BS001',
+                    '2': 'SURFACED Single Vision - Add to 72BS001',
+                    '4': 'Bi/Trifocals (Add to 74BS001)',
+                    '6': 'Varifocal Distance/Near (Add to 76BS001)',
                     '7': 'Add-Ons - Coatings',
                     '8': 'Add-Ons - Tints',
                     '9': 'Add-Ons - Other'
@@ -234,13 +230,6 @@ const SeriesSix = (props) => {
 
                   }}
 
-                  actions={[
-                    // {
-                    //   //icon: AddCircleOutlineIcon,
-                    //   tooltip: 'Add series 7000 after current selection',
-                    //   onClick: (event, rowData) => handleShow(rowData)
-                    // }
-                  ]}
                 
                 detailPanel={[
                     {
@@ -279,7 +268,50 @@ const SeriesSix = (props) => {
                       },
                     }]}
 
+                    
+                                 
+                detailPanel={[
+                  {
+                    tooltip: 'Show Name',
+                    render: rowData => {
+                      return (
+                        <div
+                          style={{
+                            fontSize: 18,
+                            textAlign: 'left',
+                            color: 'white',
+                            padding: '20px',
+                            backgroundColor: '#01579b',
+                          }}
+                        >
+                            <strong>Details: </strong> <br />
+                           
+                          Code: {rowData.Company} <br />
+                          Change: {rowData.Change} <br />
+                          Decription: {rowData.Description} <br />
+                          Stock: {rowData.Stock}<br />
+                          Index: {rowData.Index}<br />
+                          RsqHC:{rowData.RsqHC}<br />
+                          Sort: {rowData.Sort}<br />
+                          Lense Group ID:{ rowData.LensGroupID} <br />
+                          UV: {rowData.UV}<br />
+                          AR: {rowData.AR}<br />
+                          HC: {rowData.HC}<br />
+                          PH: {rowData.PH}<br />
+                          PO: {rowData.PO}<br />
+                          TL: {rowData.TL}<br />
+                          TD: {rowData.TD}<br />
+                          MC: {rowData.MC}<br />
+                        </div>
+                      )
+                    },
+                  }]}
+
+
+
+                  
                   editable={{
+                    
                     onRowUpdate: (newData, oldData) => //Must refresh after edit AND LensGroupID doesn't work
                       new Promise((resolve) => {
                         if(oldData.Description != newData.Description){
@@ -343,10 +375,6 @@ const SeriesSix = (props) => {
                             newData.TD = ''
                             newData.MC = ''
                         }
-
-                        
-                        //Change MODIFIED DATE 
-                    
                         
                         props.OnUpdateClient(props.token, oldData.id, newData, false)
                         resolve()
@@ -359,7 +387,7 @@ const SeriesSix = (props) => {
                 newData.Series_ID = 'Glass Lenses'
                 newData.LensID = ''
                 newData.Category = 'Material Lenses'
-                newData.SAOAGroup = '6000'
+                newData.SAOAGroup = '7000'
                 
                 
 
@@ -379,7 +407,6 @@ const SeriesSix = (props) => {
                 //     newData.TL = ''
                 // }
                 if(newData.LenseGroupID == '1'){
-                  //alert(newData.LenseGroupID)
                     newData.LenseGroup = 'STOCK Single Vision - Add to 71BS001'
                     newData.Rule1 = "Can add to 71BS001"
                     newData.Type = 'CORE'
@@ -411,7 +438,6 @@ const SeriesSix = (props) => {
                     newData.PO = ''
                     
                 } else if(newData.LenseGroupID == '8'){
-                  alert('Here')
                     newData.LenseGroup = 'Add-Ons - Tints'
                     newData.Rule2 = 'Can add to all GLASS Base, Stock and Core lenses'
                     newData.Type = 'ADDON'
@@ -683,22 +709,6 @@ const SeriesSix = (props) => {
                   default:
                     // code block
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
 
                 const dat = {
@@ -744,69 +754,10 @@ const SeriesSix = (props) => {
                   'SAOAGroup': newData.SAOAGroup
                 }
 
-
-                // const dat = {
-                //   'LensID': "53", 
-                //   'Category': "Materials Lenses", 
-                //   'field3': "",
-                //   'Sort': "11",
-                //   'SupplierParent': "Unbranded",
-                //   'SupplierChild': "Unbranded",
-                //   'Abbreviation': "UB",
-                //   'Series_ID': "Plastic (CR39) Lenses",
-                //   'LenseGroupID': "1", 
-                //   'LenseGroup': "STOCK Single Vision - Add to 81BS001",
-                //   'Rule1': "Can add to 81BS001",
-                //   'Rule2': "",
-                //   'Rule3': "",
-                //   'RqsHC': "NO",
-                //   'Type': "STOCK",
-                //   'StartDate': "05/01/2017",
-                //   'EndDate': "", 
-                //   'Active': "1",
-                //   'Code': "22222",
-                //   'Change': "",
-                //   'Description': "grant 1.50 Uncoated 1.5 Standard",
-                //   'Pack': "",
-                //   'Stock': "Y",
-                //   'Index': "1.65",
-                //   'UV': "UV",
-                //   'AR': "AR",
-                //   'HC': "HC", 
-                //   'PH': "PH",
-                //   'PO': "PO",
-                //   'TL': "TL",
-                //   'TD': "TD",
-                //   'MC': "MC",
-                //   'OAPrint': "1",
-                //   'MedAidPrint': "1",
-                //   'DiscPrint': "1",
-                //   'Company': "Zeiss",
-                //   'field39': "",
-                //   'field40': "",
-                //   'field41': "",
-                //   'SAOAGroup': "7000"
-                // }
-                //ADDING TO DB!!
-                //alert(JSON.stringify(newData, null, 4));
                    props.OnCreate(props.token, dat)
 
 
 
-
-
-           
-
-
-
- // new Promise((resolve) => {
-                    //   props.OnDeleteClient(props.token, oldData.id)
-                    //   props.data.splice(0, 1);
-                    //   resolve()
-                   
-                    //   return
-                      
-                    // }
 
 
 
@@ -984,7 +935,7 @@ const mapDispatchToProps = dispatch => {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SeriesSix)
+export default connect(mapStateToProps, mapDispatchToProps)(SeriesContactLense)
 
 
              

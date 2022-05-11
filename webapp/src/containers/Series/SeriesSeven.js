@@ -30,7 +30,7 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import { useLocation } from 'react-router-dom';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import { Modal, Form, Col, Row} from "react-bootstrap";
+import { Modal, Form, Col, Row, Dropdown} from "react-bootstrap";
 import { FormGroup, Icon, TextareaAutosize } from '@material-ui/core'
 import Select from 'react-select';
 import Moment from 'moment';
@@ -97,10 +97,9 @@ const SeriesSeven = (props) => {
     
     useEffect(() => {
 
-        props.OnFetchClients(props.token, "7000", 0, location.state.supplierchild, 0)
-     
-        //alert(location.state.supplierchild) //Succesfully shows users supplierchild
-        // alert(props.clients.length)
+       
+        props.OnFetchClients(props.token, "7000", 0, location.state.supplierchild, 0, location.state.lenseIdFilter)
+
     }, [])
 
     const data = props.clients !== undefined
@@ -133,7 +132,7 @@ const SeriesSeven = (props) => {
                 
                 columns={[
                     { title: 'Code', field: 'Code', editable: 'never'}, //, field: 'sort'
-                    { title: 'Change', field: 'Change', editable: 'never'},
+                    { title: 'Change', field: 'Change', editable: 'never' , hidden: true},
                     { title: 'Description', field: 'Description'},
                     { title: 'Stock', field: 'Stock', editable: 'never'},
                     { title: 'Index', field: 'Index'},
@@ -141,11 +140,11 @@ const SeriesSeven = (props) => {
                         'YES': 'YES',
                         'NO': 'NO'
                     }},
-                    { title: 'Sort', field: 'Sort'},
+                    { title: 'Sort', field: 'Sort', hidden: true},
                     { title: 'Lens Type', field: 'LenseGroupID',
                 lookup: {
 
-                    //'1': 'Base Lenses Gladd (n=1.523)',
+                    //'1': 'Base Lenses Glad (n=1.523)',
                     '1': 'STOCK Single Vision - Add to 71BS001',
                     '2': 'SURFACED Single Vision - Add to 72BS001',
                     '4': 'Bi/Trifocals (Add to 74BS001)',
@@ -173,7 +172,7 @@ const SeriesSeven = (props) => {
                 { title: 'active', field: 'Active', hidden: true},
                 { title: 'description', field: 'Description', hidden: true},
                 { title: 'Code', field: 'Code', hidden: true},
-                { title: 'change', field: 'Change', hidden: true},
+                { title: 'change', field: 'Change', hidden: true, hidden: true},
                 { title: 'pack', field: 'Pack', hidden: true},
                 { title: 'stock', field: 'Stock', hidden: true},
                 { title: 'index', field: 'Index', hidden: true},
@@ -183,31 +182,31 @@ const SeriesSeven = (props) => {
                     'UV': 'UV',
                     '': ''
                 }},
-                { title: 'AR', field: 'AR', type: 'checkbox', lookup: {
+                { title: 'AR', field: 'AR', type: 'boolean', lookup: {
                     'AR': 'YES',
                     '': 'NO'
                 }},
-                { title: 'HC', field: 'HC', type: 'checkbox', lookup: {
+                { title: 'HC', field: 'HC', type: 'boolean', lookup: {
                     'HC': 'YES',
                     '': 'NO'
                 }},
-                { title: 'PH', field: 'PH', type: 'checkbox', lookup: {
+                { title: 'PH', field: 'PH', type: 'boolean', lookup: {
                     'PH': 'YES',
                     '': 'NO'
                 }},
-                { title: 'PO', field: 'PO', type: 'checkbox', lookup: {
+                { title: 'PO', field: 'PO', type: 'boolean', lookup: {
                     'PO': 'YES',
                     '': 'NO'
                 }},
-                { title: 'TL', field: 'TL', type: 'checkbox', lookup: {
+                { title: 'TL', field: 'TL', type: 'boolean', lookup: {
                     'TL': 'YES',
                     '': 'NO'
                 }},
-                { title: 'TD', field: 'TD', type: 'checkbox', lookup: {
+                { title: 'TD', field: 'TD', type: 'boolean', lookup: {
                     'TD': 'YES',
                     '': 'NO'
                 }},
-                { title: 'MC', field: 'MC', type: 'checkbox', lookup: {
+                { title: 'MC', field: 'MC', type: 'boolean', lookup: {
                     'MC': 'YES',
                     '': 'NO'
                 }
@@ -233,13 +232,6 @@ const SeriesSeven = (props) => {
 
                   }}
 
-                  actions={[
-                    // {
-                    //   //icon: AddCircleOutlineIcon,
-                    //   tooltip: 'Add series 7000 after current selection',
-                    //   onClick: (event, rowData) => handleShow(rowData)
-                    // }
-                  ]}
                 
                 detailPanel={[
                     {
@@ -278,7 +270,50 @@ const SeriesSeven = (props) => {
                       },
                     }]}
 
+                    
+                                 
+                detailPanel={[
+                  {
+                    tooltip: 'Show Name',
+                    render: rowData => {
+                      return (
+                        <div
+                          style={{
+                            fontSize: 18,
+                            textAlign: 'left',
+                            color: 'white',
+                            padding: '20px',
+                            backgroundColor: '#01579b',
+                          }}
+                        >
+                            <strong>Details: </strong> <br />
+                           
+                          Code: {rowData.Company} <br />
+                          Change: {rowData.Change} <br />
+                          Decription: {rowData.Description} <br />
+                          Stock: {rowData.Stock}<br />
+                          Index: {rowData.Index}<br />
+                          RsqHC:{rowData.RsqHC}<br />
+                          Sort: {rowData.Sort}<br />
+                          Lense Group ID:{ rowData.LensGroupID} <br />
+                          UV: {rowData.UV}<br />
+                          AR: {rowData.AR}<br />
+                          HC: {rowData.HC}<br />
+                          PH: {rowData.PH}<br />
+                          PO: {rowData.PO}<br />
+                          TL: {rowData.TL}<br />
+                          TD: {rowData.TD}<br />
+                          MC: {rowData.MC}<br />
+                        </div>
+                      )
+                    },
+                  }]}
+
+
+
+                  
                   editable={{
+                    
                     onRowUpdate: (newData, oldData) => //Must refresh after edit AND LensGroupID doesn't work
                       new Promise((resolve) => {
                         if(oldData.Description != newData.Description){
@@ -287,7 +322,6 @@ const SeriesSeven = (props) => {
 
 
                         if(newData.LenseGroupID == '1'){
-                          //alert(newData.LenseGroupID)
                             newData.LenseGroup = 'STOCK Single Vision - Add to 71BS001'
                             newData.Rule1 = "Can add to 71BS001"
                             newData.Type = 'CORE'
@@ -343,10 +377,6 @@ const SeriesSeven = (props) => {
                             newData.TD = ''
                             newData.MC = ''
                         }
-
-                        
-                        //Change MODIFIED DATE 
-                    
                         
                         props.OnUpdateClient(props.token, oldData.id, newData, false)
                         resolve()
@@ -379,7 +409,6 @@ const SeriesSeven = (props) => {
                 //     newData.TL = ''
                 // }
                 if(newData.LenseGroupID == '1'){
-                  //alert(newData.LenseGroupID)
                     newData.LenseGroup = 'STOCK Single Vision - Add to 71BS001'
                     newData.Rule1 = "Can add to 71BS001"
                     newData.Type = 'CORE'
@@ -411,7 +440,6 @@ const SeriesSeven = (props) => {
                     newData.PO = ''
                     
                 } else if(newData.LenseGroupID == '8'){
-                  alert('Here')
                     newData.LenseGroup = 'Add-Ons - Tints'
                     newData.Rule2 = 'Can add to all GLASS Base, Stock and Core lenses'
                     newData.Type = 'ADDON'
@@ -683,22 +711,6 @@ const SeriesSeven = (props) => {
                   default:
                     // code block
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
 
                 const dat = {
@@ -744,69 +756,10 @@ const SeriesSeven = (props) => {
                   'SAOAGroup': newData.SAOAGroup
                 }
 
-
-                // const dat = {
-                //   'LensID': "53", 
-                //   'Category': "Materials Lenses", 
-                //   'field3': "",
-                //   'Sort': "11",
-                //   'SupplierParent': "Unbranded",
-                //   'SupplierChild': "Unbranded",
-                //   'Abbreviation': "UB",
-                //   'Series_ID': "Plastic (CR39) Lenses",
-                //   'LenseGroupID': "1", 
-                //   'LenseGroup': "STOCK Single Vision - Add to 81BS001",
-                //   'Rule1': "Can add to 81BS001",
-                //   'Rule2': "",
-                //   'Rule3': "",
-                //   'RqsHC': "NO",
-                //   'Type': "STOCK",
-                //   'StartDate': "05/01/2017",
-                //   'EndDate': "", 
-                //   'Active': "1",
-                //   'Code': "22222",
-                //   'Change': "",
-                //   'Description': "grant 1.50 Uncoated 1.5 Standard",
-                //   'Pack': "",
-                //   'Stock': "Y",
-                //   'Index': "1.65",
-                //   'UV': "UV",
-                //   'AR': "AR",
-                //   'HC': "HC", 
-                //   'PH': "PH",
-                //   'PO': "PO",
-                //   'TL': "TL",
-                //   'TD': "TD",
-                //   'MC': "MC",
-                //   'OAPrint': "1",
-                //   'MedAidPrint': "1",
-                //   'DiscPrint': "1",
-                //   'Company': "Zeiss",
-                //   'field39': "",
-                //   'field40': "",
-                //   'field41': "",
-                //   'SAOAGroup': "7000"
-                // }
-                //ADDING TO DB!!
-                //alert(JSON.stringify(newData, null, 4));
                    props.OnCreate(props.token, dat)
 
 
 
-
-
-           
-
-
-
- // new Promise((resolve) => {
-                    //   props.OnDeleteClient(props.token, oldData.id)
-                    //   props.data.splice(0, 1);
-                    //   resolve()
-                   
-                    //   return
-                      
-                    // }
 
 
 
@@ -909,38 +862,38 @@ const LoginForm = ({ onSubmit, custData }) => {
             <Row className="mb-6">
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="RqsHQ" />
+    <Form.Check type="boolean" label="RqsHQ" />
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="UV" />
-  </Form.Group>
-
-  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="AR" />
+    <Form.Check type="boolean" label="UV" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="HC" />
+    <Form.Check type="boolean" label="AR" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="PH" />
+    <Form.Check type="boolean" label="HC" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="PO" />
+    <Form.Check type="boolean" label="PH" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="TL" />
+    <Form.Check type="boolean" label="PO" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="TD" />
+    <Form.Check type="boolean" label="TL" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="MC" />
+    <Form.Check type="boolean" label="TD" />
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+    <Form.Check type="boolean" label="MC" />
   </Form.Group>
   </Row>
 
@@ -973,7 +926,7 @@ const mapStateToProps = state => {
 //can access these function to dispatch actions - via props
 const mapDispatchToProps = dispatch => {
     return {
-        OnFetchClients: (token, filter, userId, limit, pageNumber) => dispatch(actions.fetchClients(token, filter, userId, limit, pageNumber)),
+        OnFetchClients: (token, filter, userId, limit, pageNumber, lenseId) => dispatch(actions.fetchClients(token, filter, userId, limit, pageNumber, lenseId)),
         OnFetchClient: (token, client_id) => dispatch(actions.fetchClient(token, client_id)),
         OnFetchAssessment: (token, assessment_id, client_id) => dispatch(actionsAssessments.fetchAssessment(token, assessment_id, client_id)),
         OnSearchClients: (token, search, filter, userId) => dispatch(actions.searchClients(token, search, filter, userId)),

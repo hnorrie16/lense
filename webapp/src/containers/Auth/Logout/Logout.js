@@ -2,10 +2,11 @@
     This container handles logging a user out of the system.
 */
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as actions from '../../../store/actions/auth';
+import { Nav } from 'react-bootstrap';
 
 class Logout extends React.Component {
 
@@ -15,7 +16,7 @@ class Logout extends React.Component {
     }
     //redirecting the user back to the login page
     render() {
-        return <Redirect to="/signin" />;
+        return <Navigate to="/signin" />;
     }
 }
 

@@ -47,12 +47,13 @@ const tableIcons = {
 
 const MasterTable = (props) => {
     const [users, setUsers] = useState([])
-    const location = useLocation();
+    let location = useLocation();
+    
 
  
     
     useEffect(() => {
-        
+
         props.OnFetchClients(props.token, "exporttable", 0, location.state.supplierchild, 0)
     
     }, [])

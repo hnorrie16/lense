@@ -6,6 +6,7 @@ const checkAuthToken = require('../middleware/checkAuthToken');
 const jwt = require('jsonwebtoken');
 const { checkIfDefined } = require('../shared/validation')
 
+
 //retrieving the token secrets from environmental variables
 const accessTokenSecret = process.env.TOKEN_SECRET;
 const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;

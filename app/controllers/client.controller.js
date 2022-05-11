@@ -175,6 +175,8 @@ exports.fetchClients = (req, res) => {
 
   const staffId = req.params.id
   let filter = req.query.filter
+  let lenseId = req.query.lenseId
+
   let comp = req.query.limit
   console.log(comp + ' ROLEEE')
   if (filter === "All") filter = {}
@@ -191,6 +193,10 @@ exports.fetchClients = (req, res) => {
   else if (filter === "exporttable") filter = { "series": "exporttable" }
   else filter = {}
   console.log("FILTER ---> " + filter.series)
+  
+  console.log("LENSEIDFILTER ---> " + req.query.lenseId)
+
+
 
 
 
@@ -250,19 +256,29 @@ exports.fetchClients = (req, res) => {
                 console.log("MNMNMNMN")
                 expr =  {$and: [{ $or: [ {SAOAGroup: "7000"},{SAOAGroup: "8000"}]}]};
               } else {
-                console.log("MNMNMNMNaaaa")
-                expr =  {$and: [{ $or: [ {SAOAGroup: filter.series}]}, {SupplierChild: comp}]};
+                if(lenseId == 0){
+                  console.log("MNMNMNMNaaaa   " + comp)
+                  expr =  {$and: [{ $or: [ {SAOAGroup: filter.series}]}, {SupplierChild: comp}]};
+                } else{
+                  console.log("LENSE ID FILTER   " + comp)
+                  expr =  {$and: [{ $or: [ {SAOAGroup: filter.series}]}, {SupplierChild: comp}, {LenseGroupID: lenseId}]};
+                }
               }
 
 
-              console.log(expr)
+              console.log("EXPRESSION: " + expr)
              
       Client.find(expr, { createdAt: 0, updatedAt: 0}).skip(lowerRange).limit(limit)
       //Client.find({ SAOAGroup: filter.series }, { createdAt: 0, updatedAt: 0}).skip(lowerRange).limit(limit)
         .then(data => {
+          console.log("DATAAAAA")
+
+          console.log(data)
           resolve(data)
         })
         .catch(err => {
+          console.log("DATAAAAA SAAAAAD")
+
           reject(err)
         });
     })

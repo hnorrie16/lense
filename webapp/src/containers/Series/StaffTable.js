@@ -110,29 +110,24 @@ const SeriesOne = (props) => {
                 { title: 'Name', field: 'fullname'}, //, field: 'sort'
                 { title: 'Role', field: 'role', 
                 lookup: {
-
-                    //'1': 'Base Lenses Gladd (n=1.523)',
                     'admin': 'Admin',
                     'superuser': 'Superuser',
                     'supplier': 'Supplier'
-                }         },
+                }},
                 { title: 'Email', field: 'email'},
                 { title: 'Password', field: 'password'},
-                { title: 'Supplier Parent', field: 'supplierparent'},
-                { title: 'Supplier Child', field: 'supplierchild'},
-                // { title: 'Rule1', field: 'Rule1'},
-                // { title: 'Rule2', field: 'Rule2'},
-                // { title: 'Rule3', field: 'Rule3'},
-                // { title: 'Rule4', field: 'Rule4'},
-                // { title: 'Rule5', field: 'Rule5'},
-                // { title: 'Additional Rules', field: 'Additional Rules'},
-                // { title: 'Start Date', field: 'Start Date'},
-                // { title: 'End Date'},
-                // { title: 'Active'},
-                // { title: 'Code'},
-                // { title: 'Change'},
-                // { title: 'Description'},                            
-                // { title: 'RVU'} 
+                { title: 'Supplier Parent', field: 'supplierparent', 
+                lookup: {
+                    'Zeiss': 'Zeiss',
+                    'Hoya': 'Hoya',
+                    'Company': 'Company'
+                }},
+                { title: 'Supplier Child', field: 'supplierchild', 
+                lookup: {
+                    'Zeiss': 'Zeiss',
+                    'Hoya': 'Hoya',
+                    'Company': 'Company'
+                }},
                 ]} 
                     options={{
                     exportButton: true,
