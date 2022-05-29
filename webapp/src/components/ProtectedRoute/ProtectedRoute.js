@@ -11,7 +11,7 @@ class ProtectedRoute extends React.PureComponent {
         const Component = this.props.component;
         const isAuthenticated = this.props.isAuthenticated;
         return isAuthenticated ? (
-            this.props.path !== "/staff" ? <Component /> : this.props.role === "superuser" || this.props.role === "admin" ? <Component /> : <Navigate to={{ pathname: '/clients'}} />
+            this.props.path !== "/staff" ? <Component /> : this.props.role === "superuser" || this.props.role === "admin" ? <Component /> : <Navigate to={{ pathname: '/mastertable'}} />
         ) :   <Navigate to={{ pathname: '/signin'}} />
     }
 }

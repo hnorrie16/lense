@@ -17,11 +17,9 @@ import classess from '../NavItem/NavItem.module.css'
 import * as actions from '../../../store/actions/clients';
 import navItem from '../NavItem/NavItem';
 
-
-
 const SideNavBar = (props) => {
-    
-
+  
+  
     const [showDropDown, setShowDropDown] = useState(false);
     const history = useNavigate();
     const role = (props.userRole)
@@ -31,6 +29,7 @@ const SideNavBar = (props) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
 
     var dict = {};
     dict["STOCK Single Vision - Add to 71BS001"] = 1;
@@ -60,7 +59,6 @@ const SideNavBar = (props) => {
 
     //logs the user out of the system
     const logout = () => {
-  
         navigate("/logout", { replace: true })
         navigate(0)
     }
@@ -69,9 +67,6 @@ const SideNavBar = (props) => {
         <OutsideAlerter setShowDropDown={setShowDropDown} show={showDropDown}>
             {showDropDown &&
                 <ul className={classes.DropDownContainer}>
-                    <li className={classes.DropDownButton} onClick={() => props.OnSetUpdateStaffModal(true)} >
-                        Edit your details
-                    </li>
                     <li className={classes.DropDownButton} onClick={logout}>
                         Logout
                     </li>
@@ -101,8 +96,8 @@ const SideNavBar = (props) => {
                 {props.userRole == 'superuser' || props.userRole == 'supplier'?                 
                 < DropdownButton className={classess.NavItem} title="Glass Lenses">
                 <Dropdown.Item ><Link onclick="window.location.reload(true)" to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All lenses</Link></Dropdown.Item>
-    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 1}}>STOCK Single Vision</Link></Dropdown.Item>
-    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 2}}>SURFACED Single Vision</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 1}}  >STOCK Single Vision</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 2}} >SURFACED Single Vision</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 4}}>Bi/Trifocals</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 6}}>Varifocal Distance/Near</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 7}}>Add-Ons - Coatings</Link></Dropdown.Item>
@@ -116,12 +111,12 @@ const SideNavBar = (props) => {
   </Dropdown.Toggle>
   <Dropdown.Menu >
     <Dropdown.Item ><Link onclick="window.location.reload(true)" to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All lenses</Link></Dropdown.Item>
-    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 1}}>STOCK Single Vision - Add to 81BS001</Link></Dropdown.Item>
-    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 2}}>SURFACED Single Vision - Add to 82BS001</Link></Dropdown.Item>
-    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 3}}>Accomodative Support Lenses (Add To 83BS001)</Link></Dropdown.Item>
-    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 4}}>Bi/Trifocals (Add To 84BS001)</Link></Dropdown.Item>
-    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 5}}>Varifocal Intermediate/Near (Add To 85BS001)</Link></Dropdown.Item>
-    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 6}}>Varifocal Distance/Near (Add To 86BS001)</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 1}}>STOCK Single Vision</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 2}}>SURFACED Single Vision</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 3}}>Accomodative Support Lenses</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 4}}>Bi/Trifocals</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 5}}>Varifocal Intermediate/Near</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 6}}>Varifocal Distance/Near</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 7}}>Add-Ons - Coatings</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 8}}>Add-Ons - Tints</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 9}}>Add-Ons - Other</Link></Dropdown.Item>

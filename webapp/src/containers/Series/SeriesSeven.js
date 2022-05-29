@@ -63,6 +63,8 @@ const tableIcons = {
 
 const SeriesSeven = (props) => {
 
+  
+
     const [users, setUsers] = useState([])
     const location = useLocation();
 
@@ -94,17 +96,27 @@ const SeriesSeven = (props) => {
  
     let headings = [["Description", "priority1"], ["Type", "priority6"], ["Date Created", "priority8"], ["Code", "priority2"], ["Type", "priority5"],
     ["Change", "priority9"], ["Status", "priority4"]]
+
+    let lenseIdToLenseTypeMap = {0: "All lenses",
+      1: "STOCK Single Vision",
+     2: "SURFACED Single Vision",
+     4: "Bi/Trifocals",
+     6: "Varifocal Distance/Near",
+     7: "Add-Ons - Coatings",    
+     8: "Add-Ons - Tints", 
+     9: "Add-Ons - Other"}
     
     useEffect(() => {
 
-       
         props.OnFetchClients(props.token, "7000", 0, location.state.supplierchild, 0, location.state.lenseIdFilter)
-
+        
     }, [])
 
     const data = props.clients !== undefined
         ? props.clients
         : []
+
+        
   
 
     return (
@@ -126,10 +138,7 @@ const SeriesSeven = (props) => {
            
             <div className={classes.Container}>     
                 <MaterialTable  
-                title = "Series 7000"   
-                
-                
-                
+                title = {location.state.supplierchild + "\nSeries 7000 - " + lenseIdToLenseTypeMap[location.state.lenseIdFilter]} 
                 columns={[
                     { title: 'Code', field: 'Code', editable: 'never'}, //, field: 'sort'
                     { title: 'Change', field: 'Change', editable: 'never' , hidden: true},
@@ -144,7 +153,6 @@ const SeriesSeven = (props) => {
                     { title: 'Lens Type', field: 'LenseGroupID',
                 lookup: {
 
-                    //'1': 'Base Lenses Glad (n=1.523)',
                     '1': 'STOCK Single Vision - Add to 71BS001',
                     '2': 'SURFACED Single Vision - Add to 72BS001',
                     '4': 'Bi/Trifocals (Add to 74BS001)',
@@ -152,7 +160,7 @@ const SeriesSeven = (props) => {
                     '7': 'Add-Ons - Coatings',
                     '8': 'Add-Ons - Tints',
                     '9': 'Add-Ons - Other'
-                }         
+                }, editable: 'never'      
             
             },
                 { title: 'lense_id', field: 'LensID', hidden: true},
@@ -178,9 +186,9 @@ const SeriesSeven = (props) => {
                 { title: 'index', field: 'Index', hidden: true},
                 { title: 'saoa', field: 'SAOAGroup',  hidden: true},
 
-                { title: 'UV', field: 'UV', lookup: {
-                    'UV': 'UV',
-                    '': ''
+                { title: 'UV', field: 'UV', type: 'boolean', lookup: {
+                    'UV': 'YES',
+                    '': 'NO'
                 }},
                 { title: 'AR', field: 'AR', type: 'boolean', lookup: {
                     'AR': 'YES',
@@ -390,6 +398,8 @@ const SeriesSeven = (props) => {
                 newData.LensID = ''
                 newData.Category = 'Material Lenses'
                 newData.SAOAGroup = '7000'
+                newData.LenseGroupID = location.state.lenseIdFilter;
+                alert(location.state.lenseIdFilter)
                 
                 
 

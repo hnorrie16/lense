@@ -35,14 +35,14 @@ const App = (props) => {
   return (
 <Layout>
 <Routes>
-      <Route path="/signin" exact={true} element={<Auth />}></Route>
+      <Route path="/signin" element={<Auth />}></Route>
       <Route path="/" element={<Navigate replace to="/signin" />} />
       <Route name = "master" path="/master" element={<MasterTable />} />
       <Route name = "seriessix" path="/seriessix" element={<SeriesSix/>} />
       <Route name = "seriesseven" path="/seriesseven" element={<SeriesSeven/>} />
       <Route name = "seriescontactlense" path="/seriescontactlense" element={<SeriesContactLense/>} />
       <Route path="/staff" element={<StaffTable/>}/>
-      <Route path="/logout" element={<Logout/>} />
+      <Route name="logout" path="/logout" element={<Logout/>} />
 </Routes>
 </Layout>
   );

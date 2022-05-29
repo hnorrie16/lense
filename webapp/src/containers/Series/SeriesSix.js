@@ -35,6 +35,7 @@ import { FormGroup, Icon, TextareaAutosize } from '@material-ui/core'
 import Select from 'react-select';
 import Moment from 'moment';
 import { format } from 'date-fns';
+import { concat } from 'async';
 
 
 
@@ -105,7 +106,17 @@ const SeriesSix = (props) => {
     const data = props.clients !== undefined
         ? props.clients
         : []
-  
+
+        let lenseIdToLenseTypeMap = {0: "All lenses",
+        1: "STOCK Single Vision",
+       2: "SURFACED Single Vision",
+       3: "Accomodative Support Lenses",
+       4: "Bi/Trifocals",
+       5: "Varifocal Intermediate/Near",
+       6: "Varifocal Distance/Near",
+       7: "Add-Ons - Coatings",    
+       8: "Add-Ons - Tints", 
+       9: "Add-Ons - Other"}  
 
     return (
         <>
@@ -124,12 +135,9 @@ const SeriesSix = (props) => {
                 </ul>
             </div>
            
-            <div className={classes.Container}>     
+          <div className={classes.Container}>     
                 <MaterialTable  
-                title = "Series 8000"   
-                
-                
-                
+                title = {location.state.supplierchild + "\nSeries 8000 - " + lenseIdToLenseTypeMap[location.state.lenseIdFilter]} 
                 columns={[
                     { title: 'Code', field: 'Code', editable: 'never'}, //, field: 'sort'
                     { title: 'Change', field: 'Change', editable: 'never', hidden: true},
@@ -154,8 +162,7 @@ const SeriesSix = (props) => {
                     '7': 'Add-Ons - Coatings',
                     '8': 'Add-Ons - Tints',
                     '9': 'Add-Ons - Other'
-                }         
-            
+                }, editable: 'never'     
             },
                 { title: 'lense_id', field: 'LensID', hidden: true},
                 { title: 'category', field: 'Category', hidden: true},
@@ -180,9 +187,9 @@ const SeriesSix = (props) => {
                 { title: 'index', field: 'Index', hidden: true},
                 { title: 'saoa', field: 'SAOAGroup',  hidden: true},
 
-                { title: 'UV', field: 'UV', lookup: {
-                    'UV': 'UV',
-                    '': ''
+                { title: 'UV', field: 'UV', type: 'boolean', lookup: {
+                    'UV': 'YES',
+                    '': 'NO'
                 }},
                 { title: 'AR', field: 'AR', type: 'boolean', lookup: {
                     'AR': 'YES',
@@ -215,8 +222,6 @@ const SeriesSix = (props) => {
                 
             },
 
-
-
                 ]} 
                 options={{
                     filtering: true,
@@ -225,7 +230,6 @@ const SeriesSix = (props) => {
                                                                                                                                                                               
                     rowStyle: {
                         fontSize: 12,
-                      //  backgroundColor: '#EEE'                                  
                       },
                       headerStyle: {
                         backgroundColor: '#01579b',
@@ -233,15 +237,6 @@ const SeriesSix = (props) => {
                       }
 
                   }}
-
-                  actions={[
-                    // {
-                    //   //icon: AddCircleOutlineIcon,
-                    //   tooltip: 'Add series 7000 after current selection',
-                    //   onClick: (event, rowData) => handleShow(rowData)
-                    // }
-                  ]}
-                
                 detailPanel={[
                     {
                       tooltip: 'Show Name',
@@ -278,15 +273,12 @@ const SeriesSix = (props) => {
                         )
                       },
                     }]}
-
                   editable={{
                     onRowUpdate: (newData, oldData) => //Must refresh after edit AND LensGroupID doesn't work
                       new Promise((resolve) => {
                         if(oldData.Description != newData.Description){
                           newData.Change = "s"
                         } 
-
-
                         if(newData.LenseGroupID == '1'){
                             newData.LenseGroup = 'STOCK Single Vision - Add to 71BS001'
                             newData.Rule1 = "Can add to 71BS001"
@@ -354,13 +346,14 @@ const SeriesSix = (props) => {
                   onRowAdd: (newData) => //Develop Create Routes etc
                     new Promise((resolve) => {
 
-                
+
                 //Setting the deafult values!
                 newData.Series_ID = 'Glass Lenses'
                 newData.LensID = ''
                 newData.Category = 'Material Lenses'
                 newData.SAOAGroup = '6000'
-                
+                newData.LenseGroupID = location.state.lenseIdFilter;
+
                 
 
                 //Setting LenseGroup
@@ -685,22 +678,6 @@ const SeriesSix = (props) => {
                 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
                 const dat = {
                   'LensID': newData.LensID, 
                   'Category': newData.Category, 
@@ -790,13 +767,6 @@ const SeriesSix = (props) => {
                 //ADDING TO DB!!
                 //alert(JSON.stringify(newData, null, 4));
                    props.OnCreate(props.token, dat)
-
-
-
-
-
-           
-
 
 
  // new Promise((resolve) => {

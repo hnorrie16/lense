@@ -20,7 +20,7 @@ const Auth = (props) => {
     let redirect = null
 
     if (props.isAuthenticated) {
-        redirect = <Navigate to="/clients" />
+        redirect = <Navigate to="/mastertable" />
     }
 
     const errorMsg = props.loading ? null : props.error ? props.error : null
