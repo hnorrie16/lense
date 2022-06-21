@@ -148,7 +148,7 @@ const SeriesSeven = (props) => {
                     { title: 'RqsHC', field: 'RqsHC', lookup: {
                         'YES': 'YES',
                         'NO': 'NO'
-                    }},
+                    }, hidden: location.state.lenseIdFilter === 1},
                     { title: 'Sort', field: 'Sort', hidden: true},
                     { title: 'Lens Type', field: 'LenseGroupID',
                 lookup: {
@@ -160,7 +160,7 @@ const SeriesSeven = (props) => {
                     '7': 'Add-Ons - Coatings',
                     '8': 'Add-Ons - Tints',
                     '9': 'Add-Ons - Other'
-                }, editable: 'never'      
+                }, editable: 'never', hidden: true    
             
             },
                 { title: 'lense_id', field: 'LensID', hidden: true},
@@ -193,11 +193,11 @@ const SeriesSeven = (props) => {
                 { title: 'AR', field: 'AR', type: 'boolean', lookup: {
                     'AR': 'YES',
                     '': 'NO'
-                }},
+                }, editable: 'never'},
                 { title: 'HC', field: 'HC', type: 'boolean', lookup: {
                     'HC': 'YES',
                     '': 'NO'
-                }},
+                }, editable: 'never'},
                 { title: 'PH', field: 'PH', type: 'boolean', lookup: {
                     'PH': 'YES',
                     '': 'NO'
@@ -217,7 +217,7 @@ const SeriesSeven = (props) => {
                 { title: 'MC', field: 'MC', type: 'boolean', lookup: {
                     'MC': 'YES',
                     '': 'NO'
-                }
+                }, editable: 'never'
                 
             },
 
@@ -361,7 +361,6 @@ const SeriesSeven = (props) => {
                             newData.PO = ''
                             
                         } else if(newData.LenseGroupID == '8'){
-                          alert('Here')
                             newData.LenseGroup = 'Add-Ons - Tints'
                             newData.Rule2 = 'Can add to all GLASS Base, Stock and Core lenses'
                             newData.Type = 'ADDON'
@@ -399,7 +398,6 @@ const SeriesSeven = (props) => {
                 newData.Category = 'Material Lenses'
                 newData.SAOAGroup = '7000'
                 newData.LenseGroupID = location.state.lenseIdFilter;
-                alert(location.state.lenseIdFilter)
                 
                 
 

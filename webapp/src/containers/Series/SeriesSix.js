@@ -147,7 +147,7 @@ const SeriesSix = (props) => {
                     { title: 'RqsHC', field: 'RqsHC', lookup: {
                         'YES': 'YES',
                         'NO': 'NO'
-                    }},
+                    }, hidden: location.state.lenseIdFilter === 1},
                     { title: 'Sort', field: 'Sort', hidden: true},
                     { title: 'Lens Type', field: 'LenseGroupID',
                 lookup: {
@@ -194,11 +194,11 @@ const SeriesSix = (props) => {
                 { title: 'AR', field: 'AR', type: 'boolean', lookup: {
                     'AR': 'YES',
                     '': 'NO'
-                }},
+                }, editable: 'never'},
                 { title: 'HC', field: 'HC', type: 'boolean', lookup: {
                     'HC': 'YES',
                     '': 'NO'
-                }},
+                }, editable: 'never'},
                 { title: 'PH', field: 'PH', type: 'boolean', lookup: {
                     'PH': 'YES',
                     '': 'NO'
@@ -218,7 +218,7 @@ const SeriesSix = (props) => {
                 { title: 'MC', field: 'MC', type: 'boolean', lookup: {
                     'MC': 'YES',
                     '': 'NO'
-                }
+                }, editable: 'never'
                 
             },
 
@@ -311,7 +311,6 @@ const SeriesSix = (props) => {
                             newData.PO = ''
                             
                         } else if(newData.LenseGroupID == '8'){
-                          alert('Here')
                             newData.LenseGroup = 'Add-Ons - Tints'
                             newData.Rule2 = 'Can add to all GLASS Base, Stock and Core lenses'
                             newData.Type = 'ADDON'
@@ -404,8 +403,8 @@ const SeriesSix = (props) => {
                     newData.PO = ''
                     
                 } else if(newData.LenseGroupID == '8'){
-                  alert('Here')
-                    newData.LenseGroup = 'Add-Ons - Tints'
+
+                  newData.LenseGroup = 'Add-Ons - Tints'
                     newData.Rule2 = 'Can add to all GLASS Base, Stock and Core lenses'
                     newData.Type = 'ADDON'
                     newData.Index = ''
