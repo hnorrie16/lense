@@ -71,18 +71,178 @@ const SeriesSeven = (props) => {
     const [users, setUsers] = useState([])
     const location = useLocation();
     const [rowData, setData] = useState([]);
+    const [newRowData, setNewRowData] = useState([]);
+
+
+    const [state, setState] = useState(
+      {
+        Code: "",
+        Description: "",
+        Index: "",
+        AR: "",
+        HC: "",
+        PO: "",
+        RqsHC: "",
+        UV: "",
+        MC: "",
+        TD: "",
+        TL: "",
+        PH: ""
+      }
+    );
+
+
+
     const [editMode, setMode] = useState([]);
 
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+      
+      // return data back to normal
+      setState({ Code: "",
+      Index: "",
+      Description:  "" ,
+      AR:  "",
+      HC:  "",
+      PO:  "",
+      RqsHC:  "",
+      UV:  "",
+      MC:  "",
+      TD:  "",
+      TL:  "",
+      PH:  ""
+    })
+      setShow(false)
+
+
+    };
     
     const handleShow = (dat, mode) =>  {
       setData(dat)
+      setNewRowData(dat)
+
+      setState({
+      Index: dat["Index"],
+      Description: dat["Description"],
+      AR: dat["AR"],
+      HC: dat["HC"],
+      PO: dat["PO"],
+      RqsHC: dat["RqsHC"],
+      UV: dat["UV"],
+      MC: dat["MC"],
+      TD: dat["TD"],
+      TL: dat["TL"],
+      PH: dat["PH"]
+     })
+  
+
       setMode(mode)
-      alert(mode)
       setShow(true)
     }
+
+    const handleChange = (fieldName, value) =>  {
+      if(fieldName === "Description"){
+        setState(prevState => ({
+          ...prevState,
+          "Description": value
+       }));
+      } 
+      if(fieldName === "Index"){
+        setState(prevState => ({
+          ...prevState,
+          "Index": value
+       }));      }
+       if(fieldName === "RqsHC"){
+        setState(prevState => ({
+          ...prevState,
+          "RqsHC": value
+       }));      }
+       if(fieldName === "UV"){
+        setState(prevState => ({
+          ...prevState,
+          "UV": value
+       }));      }
+       if(fieldName === "AR"){
+        setState(prevState => ({
+          ...prevState,
+          "AR": value
+       }));      }
+       if(fieldName === "PO"){
+        setState(prevState => ({
+          ...prevState,
+          "PO": value
+       }));      }
+       if(fieldName === "PH"){
+        setState(prevState => ({
+          ...prevState,
+          "PH": value
+       }));      }
+       if(fieldName === "MC"){
+        setState(prevState => ({
+          ...prevState,
+          "MC": value
+       }));      }
+       if(fieldName === "HC"){
+        setState(prevState => ({
+          ...prevState,
+          "HC": value
+       }));      }
+       if(fieldName === "TD"){
+        setState(prevState => ({
+          ...prevState,
+          "TD": value
+       }));      }
+       if(fieldName === "TL"){
+        setState(prevState => ({
+          ...prevState,
+          "TL": value
+       }));      }
+       if(fieldName === "TD"){
+        setState(prevState => ({
+          ...prevState,
+          "TD": value
+       }));      }
+
+ 
+    }
+    const updateLense = (dat) =>  {
+      new Promise((resolve) => {
+
+        var newData = dat;
+        newData.Index = state.Index;
+        newData.Description = state.Description;
+        newData.AR = state.AR;
+        newData.HC = state.HC;
+        newData.PO = state.PO;
+        newData.RqsHC = state.RqsHC;
+        newData.UV = state.UV;
+        newData.MC = state.MC;
+        newData.TD = state.TD;
+        newData.TL = state.TL;
+        newData.PH = state.PH;
+
+
+        props.OnUpdateClient(props.token, newData.id, newData, false)
+        resolve()
+
+        alert("Item updated! (To be replaced with modal)")
+        handleClose()
+  })
+
+    }
+
+    const deleteLense = (dat) =>  {
+        new Promise((resolve) => {
+                    var newData = dat
+                    newData.EndDate = format(new Date(), 'yyyy/MM/dd')
+                    newData.Change = "X"
+                    props.OnUpdateClient(props.token, dat.id, newData, false)
+                    resolve()
+  })
+    }
+
+
 
 
     let headings = [["Description", "priority1"], ["Type", "priority6"], ["Date Created", "priority8"], ["Code", "priority2"], ["Type", "priority5"],
@@ -120,7 +280,7 @@ const SeriesSeven = (props) => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>{editMode == "EDIT" ? rowData.Description : "" }</Modal.Title>
+          <Modal.Title>{editMode == "EDIT" ? state.Description : "Add new lense" }</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form>
@@ -131,7 +291,7 @@ const SeriesSeven = (props) => {
           Code
         </Form.Label>
         <Col sm={4}>
-          <Form.Control type="text" value={editMode == "EDIT" ? rowData.Code : "" } />
+          <Form.Control type="text" value={editMode == "EDIT" ? state.Code : "" } onChange={(e)=>{setState({ Code: rowData.Code})}}/>
         </Col>
       </Form.Group>
 
@@ -140,7 +300,7 @@ const SeriesSeven = (props) => {
           Desc
         </Form.Label>
         <Col sm={10}>
-          <Form.Control type="textarea" value={editMode == "EDIT" ? rowData.Description : "" }/>
+          <Form.Control type="textarea" value={editMode == "EDIT" ? state.Description : "" } onChange={(e)=>{handleChange("Description", e.target.value)}}/>
         </Col>
       </Form.Group>
 
@@ -149,7 +309,7 @@ const SeriesSeven = (props) => {
           Index
         </Form.Label>
         <Col sm={3}>
-          <Form.Control type="text" value={editMode == "EDIT" ? rowData.Index : "" } />
+          <Form.Control type="textfield" value={editMode == "EDIT" ? state.Index : "" } onChange={(e)=>{handleChange("Index", e.target.value)}}/>
         </Col>
       </Form.Group>
 
@@ -161,73 +321,89 @@ const SeriesSeven = (props) => {
       <Grid container>
      <Grid item xs={6}> 
      <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.RqsHC == 'YES') ? true : false} 
-              disabled
+              defaultChecked={(editMode == "EDIT" && state.RqsHC == 'YES') ? true : false} 
               type="checkbox"
               label="RqsHC"
               name="formHorizontalRadios"
               id="formHorizontalRadios1"
+              onChange={(e)=>{handleChange("RqsHC", e.target.checked == true ? "YES" : "")}}
+              
             />
+
+
+
+
+
+
             <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.UV == 'UV') ? true : false} 
+              defaultChecked={(editMode == "EDIT" && state.UV == 'UV') ? true : false} 
               type="checkbox"
-              label="UV"
+              label="UV - UV Coated"
               name="formHorizontalRadios"
               id="formHorizontalRadios2"
+              onChange={(e)=>{handleChange("UV", e.target.checked == true ? "UV" : "")}}
             />
+
+
+
+
+
+
             <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.AR == 'AR') ? true : false} 
+              defaultChecked={(editMode == "EDIT" && state.AR == 'AR') ? true : false} 
               type="checkbox"
-              label="AR"
+              label="AR - AR Coated"
               name="formHorizontalRadios"
               id="formHorizontalRadios2"
-            />
+              onChange={(e)=>{handleChange("AR", e.target.checked == true ? "AR" : "")}}  
+              />
                  <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.HC == 'HC') ? true : false} 
+              defaultChecked={(editMode == "EDIT" && state.HC == 'HC') ? true : false} 
               type="checkbox"
-              label="HC"
+              label="HC - Hard Coated"
               name="formHorizontalRadios"
               id="formHorizontalRadios3"
-            />
+              onChange={(e)=>{handleChange("HC", e.target.checked == true ? "HC" : "")}}       />
             <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.PH == 'PH') ? true : false} 
+              defaultChecked={(editMode == "EDIT" && state.PH == 'PH') ? true : false} 
               type="checkbox"
-              label="PH"
+              label="PH - Photochromic"
               name="formHorizontalRadios"
               id="formHorizontalRadios3"
+              onChange={(e)=>{handleChange("PH", e.target.checked == true ? "PH" : "")}}      
             />
 
      </Grid>
      <Grid item xs={6}>
 
             <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.PO == 'PO') ? true : false} 
+              defaultChecked={(editMode == "EDIT" && state.PO == 'PO') ? true : false} 
               type="checkbox"
-              label="PO"
+              label="PO - Polarised"
               name="formHorizontalRadios"
               id="formHorizontalRadios3"
-            />
+              onChange={(e)=>{handleChange("PO", e.target.checked == true ? "PO" : "")}}             />
             <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.TL == 'TL') ? true : false} 
+              defaultChecked={(editMode == "EDIT" && state.TL == 'TL') ? true : false} 
               type="checkbox"
-              label="TL"
+              label="TL - Tint < 35%"
               name="formHorizontalRadios"
               id="formHorizontalRadios3"
-            />
+              onChange={(e)=>{handleChange("TL",  e.target.checked == true ? "TL" : "")}}           />
             <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.TD == 'TD') ? true : false} 
+              defaultChecked={(editMode == "EDIT" && state.TD == 'TD') ? true : false} 
               type="checkbox"
-              label="TD"
+              label="TD - Tint > 35%"
               name="formHorizontalRadios"
               id="formHorizontalRadios3"
-            />
+              onChange={(e)=>{handleChange("TD",  e.target.checked == true ? "TD" : "")}}           />
             <Form.Check
-              defaultChecked={(editMode == "EDIT" && rowData.MC == 'MC') ? true : false} 
+              defaultChecked={(editMode == "EDIT" && state.MC == 'MC') ? true : false} 
               type="checkbox"
-              label="MC"
+              label="MC - Mirror Coat"
               name="formHorizontalRadios"
               id="formHorizontalRadios3"
-            />
+              onChange={(e)=>{handleChange("MC",  e.target.checked == true ? "MC" : "")}}             />
 
      </Grid>
 </Grid>       
@@ -235,7 +411,7 @@ const SeriesSeven = (props) => {
     </Form>
         </Modal.Body>
         <Modal.Footer>
-        <Button clicked={() => {alert('Adding feature still in progress')}}>Update</Button>
+        <Button clicked={() => updateLense(rowData)}>Update</Button>
         </Modal.Footer>
 
 </Modal>
@@ -267,7 +443,7 @@ const SeriesSeven = (props) => {
                       Add below
                       </Dropdown.Item>
                       <Dropdown.Item onClick={(event) => handleShow(props.data, "EDIT")}>Edit item</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Delete Item</Dropdown.Item>
+                      <Dropdown.Item onClick={(event) => deleteLense(props.data)}>Delete Item</Dropdown.Item>
 
                     </Dropdown.Menu>
                   </Dropdown>
@@ -375,7 +551,9 @@ const SeriesSeven = (props) => {
                       headerStyle: {
                         backgroundColor: '#01579b',
                         color: '#FFF',
-                      }
+                      },
+
+                      rowStyle: rowData => ({           backgroundColor: rowData.Change === "X" ? "#FF0000" : "#FFFFFF"         })
 
                   }}
 
