@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, componentDidMount  } from 'react'
 import { Modal, Form, Dropdown, DropdownButton, Spinner, Nav, ButtonGroup} from "react-bootstrap";
 import classes from './SideNavBar.module.css'
 import looks from '../NavItem/NavItem.module.css'
@@ -25,6 +25,7 @@ const SideNavBar = (props) => {
     const role = (props.userRole)
 
     const [show, setShow] = useState(false);
+
     let navigate = useNavigate();
 
     const handleClose = () => setShow(false);
@@ -54,7 +55,7 @@ const SideNavBar = (props) => {
     e.preventDefault();
     handleClose();
   };
- 
+
 
 
     //logs the user out of the system
@@ -94,8 +95,8 @@ const SideNavBar = (props) => {
 
 <hr></hr>
                 {props.userRole == 'superuser' || props.userRole == 'supplier'?                 
-                < DropdownButton className={classess.NavItem} title="Glass Lenses">
-                <Dropdown.Item ><Link onclick="window.location.reload(true)" to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All lenses</Link></Dropdown.Item>
+    < DropdownButton className={classess.NavItem} title="Glass Lenses">
+    <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All lenses</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 1}}  >STOCK Single Vision</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 2}} >SURFACED Single Vision</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriesseven" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 4}}>Bi/Trifocals</Link></Dropdown.Item>
@@ -110,7 +111,7 @@ const SideNavBar = (props) => {
     Plastic lenses
   </Dropdown.Toggle>
   <Dropdown.Menu >
-    <Dropdown.Item ><Link onclick="window.location.reload(true)" to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All lenses</Link></Dropdown.Item>
+    <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 0}}>All lenses</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 1}}>STOCK Single Vision</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 2}}>SURFACED Single Vision</Link></Dropdown.Item>
     <Dropdown.Item ><Link to="seriessix" state={{supplierchild: props.userDetails.supplierchild, lenseIdFilter: 3}}>Accomodative Support Lenses</Link></Dropdown.Item>
