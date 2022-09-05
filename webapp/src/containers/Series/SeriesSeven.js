@@ -263,7 +263,7 @@ const SeriesSeven = (props) => {
 
   const addLense = (dat) => {
     new Promise((resolve) => {
-
+      alert(lenseIdToLenseTypeMap[location.state.lenseIdFilter])
       const newData = {
              Category: 'Materials Lenses', // done
              LensID: '', // done
@@ -273,8 +273,8 @@ const SeriesSeven = (props) => {
              SupplierChild: location.state.supplierchild, // todo specific
              Abbreviation: 'todo',
              Series_ID: 'Glass Lenses',
-             LensGroupID: 1, // todo specific
-             LensGroup: "STOCK Single Vision" , // todo specific
+             LensGroupID: location.state.lenseIdFilter, // todo specific
+             LensGroup: lenseIdToLenseTypeMap[location.state.lenseIdFilter], // todo specific
              Rule1: '',
              Rule2: '',
              Rule3: '',
@@ -286,7 +286,7 @@ const SeriesSeven = (props) => {
              Active: '1',
              Code: '', // done
              Change: '',
-             Description: 'Before rules',
+             Description: location.state.Description,
              Pack: '',
              Stock: '',
              Index: '',
@@ -888,7 +888,6 @@ const SeriesSeven = (props) => {
                 9: "Add-Ons - Other",
               },
               editable: "never",
-              hidden: true,
             },
             { title: "lense_id", field: "LensID", hidden: true },
             { title: "category", field: "Category", hidden: true },
