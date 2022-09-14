@@ -243,15 +243,15 @@ const SeriesSeven = (props) => {
       var newData = dat;
       newData.Index = state.Index;
       newData.Description = state.Description;
-      newData.AR = state.AR;
-      newData.HC = state.HC;
-      newData.PO = state.PO;
-      newData.RqsHC = state.RqsHC;
-      newData.UV = state.UV;
-      newData.MC = state.MC;
-      newData.TD = state.TD;
-      newData.TL = state.TL;
-      newData.PH = state.PH;
+      newData.AR = state.AR == true ? true : false;
+      newData.HC = state.HC== true ? true : false;
+      newData.PO = state.PO== true ? true : false;
+      newData.RqsHC = state.RqsHC== true ? true : false;
+      newData.UV = state.UV== true ? true : false;
+      newData.MC = state.MC== true ? true : false;
+      newData.TD = state.TD== true ? true : false;
+      newData.TL = state.TL== true ? true : false;
+      newData.PH = state.PH== true ? true : false;
 
       props.OnUpdateClient(props.token, newData.id, newData, false);
       resolve();
@@ -263,51 +263,57 @@ const SeriesSeven = (props) => {
 
   const addLense = (dat) => {
     new Promise((resolve) => {
-      alert(lenseIdToLenseTypeMap[location.state.lenseIdFilter])
+
       const newData = {
-             Category: 'Materials Lenses', // done
-             LensID: '', // done
-             field3: '', // done
-             Sort: 281,
-             SupplierParent: location.state.supplierchild,
-             SupplierChild: location.state.supplierchild, // todo specific
-             Abbreviation: 'todo',
-             Series_ID: 'Glass Lenses',
-             LensGroupID: location.state.lenseIdFilter, // todo specific
-             LensGroup: lenseIdToLenseTypeMap[location.state.lenseIdFilter], // todo specific
-             Rule1: '',
-             Rule2: '',
-             Rule3: '',
+             Category: 'Materials Lenses', // done ////////////////
+             Company: 'Carl Zeiss Vision - Zeiss', /////////////
+             LensID: '', // done    ////////////////
+             field3: '', // done ////////////////
+             field39: '',////////////////
+             field40: '',////////////////
+             field41: '',////////////////
+             Sort: 281, ////////////////
+             SupplierParent: location.state.supplierchild,////////////////
+             SupplierChild: location.state.supplierchild, // todo specific////////////////
+             Abbreviation: 'todo', ////////////////
+             Series_ID: 'Glass Lenses',////////////////
+             Rule1: '', ////////////////
+             Rule2: '',////////////////
+             Rule3: '',////////////////
              RqsHC: '',
-             Type: '',
-             StartDate: '',
+             Type: '', ////////////////
+             StartDate: '', ////////////////
              ModifiedDate: '',
-             EndDate: '',
-             Active: '1',
-             Code: '', // done
-             Change: '',
-             Description: location.state.Description,
-             Pack: '',
-             Stock: '',
-             Index: '',
+             EndDate: '', ////////////////
+             Active: '1', ////////////////
+             Code: '', // done////////////////
+             Change: '',////////////////
+             Description: state.Description,////////////////
+             Pack: '',////////////////
+             Stock: '',////////////////
+             Index: state.Index,////////////////
              UV: state.UV,
              AR: state.AR,
              HC: state.HC,
              PH: state.PH,
              PO: state.PO,
-             TL: state.TL,
-             TD: state.TD,
+             TL: state.TL,////////////////
+             TD: state.TD,////////////////
              MC: state.MC,
              OAPrint: '',
-             MedAidPrint: '',
-             DiscPrint: '',
-             SAOAGroup: '7000'
+             MedAidPrint: '',////////////////
+             DiscPrint: '',////////////////
+             SAOAGroup: '7000'////////////////
       };
+
+      newData["LenseGroupID"] = location.state.lenseIdFilter;
+      newData["LenseGroup"] = lenseIdToLenseTypeMap[location.state.lenseIdFilter];
   
 
       props.OnCreate(props.token, newData);
-      tableData.push(newData)
       resolve();
+
+      tableData.push(newData)
 
       alert("Item Added! (To be replaced with modal)");
       handleClose();
@@ -336,10 +342,10 @@ const SeriesSeven = (props) => {
 
   let lenseIdToLenseTypeMap = {
     0: "All lenses",
-    1: "STOCK Single Vision",
-    2: "SURFACED Single Vision",
-    4: "Bi/Trifocals",
-    6: "Varifocal Distance/Near",
+    1: 'STOCK Single Vision - Add to 71BS001',
+    2: "SURFACED Single Vision - Add to 72BS001",
+    4: "Bi/Trifocals (Add to 74BS001)",
+    6: "Varifocal Distance/Near (Add to 76BS001)",
     7: "Add-Ons - Coatings",
     8: "Add-Ons - Tints",
     9: "Add-Ons - Other",
